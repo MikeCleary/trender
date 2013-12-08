@@ -12,6 +12,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development do 
+  gem 'cucumber-rails'
+  gem 'rspec-rails'
   gem 'jasmine-rails'
 end
 
