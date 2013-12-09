@@ -9,6 +9,10 @@ class TrendsController < ApplicationController
     render :json => @trend_locations
   end
 
+  def map
+    
+  end
+
   private
 
   def twitter_oauth_client
