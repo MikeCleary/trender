@@ -15,20 +15,22 @@
 # gem 'pg'
 #
 development:
+  host: 127.0.0.1
   adapter: postgresql
   encoding: unicode
   database: trender_development
   pool: 5
   username: postgres
-  password: password
+  password: postgres
 
 test: &test
+  host: 127.0.0.1
   adapter: postgresql
   encoding: unicode
   database: trender_test
   pool: 5
   username: postgres
-  password: password
+  password: postgres
 
 production:
   adapter: postgresql
@@ -36,7 +38,7 @@ production:
   database: trender_production
   pool: 5
   username: postgres
-  password: password
+  password: postgres
 
 cucumber:
   <<: *test
