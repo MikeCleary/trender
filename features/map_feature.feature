@@ -1,0 +1,7 @@
+Feature: Select country from a map
+  @wip
+  Scenario: A visitor chooses a country from a map
+    Given the visitor is on the map page
+    And thier are tweets in the database
+    When the visitor clicks on a country
+    Then tweets are returned for that country
