@@ -6,11 +6,11 @@ class TrendsController < ApplicationController
       :consumer_secret => Trender::Application.config.consumer_secret
     )
     @trend_locations = twitter_oauth_client.trends_available
-    render :json => @trend_locations
+    Country.get_countries(@trend_locations)
   end
 
   def map
-    
+
   end
 
   private

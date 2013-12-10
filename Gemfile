@@ -10,10 +10,14 @@ gem 'jbuilder', '~> 1.2'
 gem 'twitter'
 
 group :development, :test do 
+  gem 'shoulda-matchers'
   gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'jasmine-rails'
   gem 'pry'
+  gem 'machinist'
 end
 
 group :doc do
