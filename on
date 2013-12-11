@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/michael/projects/rails/trender/app/models/story.rb @ line 18 Story.parse_feedzilla:
+
+    [1;34m17[0m: [1;31mdef[0m [1;36mself[0m.[1;34mparse_feedzilla[0m(json, trend_id)
+ => [1;34m18[0m:   binding.pry
+    [1;34m19[0m:   json[[32m[1;32m'[0m[32marticles[1;32m'[0m[32m[0m].each [1;31mdo[0m |article|
+    [1;34m20[0m:     [1;34m[4mActiveRecord[0m::[1;34m[4mBase[0m.transaction [1;31mdo[0m
+    [1;34m21[0m:       [1;34m[4mStory[0m.create(
+    [1;34m22[0m:         [1;32m:title[0m => article[[32m[1;32m'[0m[32mtitle[1;32m'[0m[32m[0m],
+    [1;34m23[0m:         [1;32m:url[0m => article[[32m[1;32m'[0m[32murl[1;32m'[0m[32m[0m],
+    [1;34m24[0m:         [1;32m:source[0m => article[[32m[1;32m'[0m[32msource[1;32m'[0m[32m[0m],
+    [1;34m25[0m:         [1;32m:published[0m => article[[32m[1;32m'[0m[32mpublish_date[1;32m'[0m[32m[0m],
+    [1;34m26[0m:         [1;32m:trend_id[0m => trend_id
+    [1;34m27[0m:       )
+    [1;34m28[0m:     [1;31mend[0m
+    [1;34m29[0m:   [1;31mend[0m
+    [1;34m30[0m: [1;31mend[0m
+

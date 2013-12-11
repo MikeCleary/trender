@@ -11,8 +11,7 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    Story.parse_feedzilla(Story.get_feedzilla(params), params[:id])
-    @stories = Story.where(:trend_id => params[:id])
+    @stories = Story.get_feedzilla(params)
   end
 
   def trends_by_region

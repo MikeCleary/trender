@@ -4,12 +4,15 @@ describe Story do
   context "associations" do 
     it { should belong_to(:trend) }
   end
+  
+  before do 
+    @trend = Trend.create!
+    @feedzilla = JSON(File.read('spec/support/stories/feedzilla_australia_stories.json'))
+  end
 
   context "parsing feedzilla resonse" do
     before do 
-      @trend = Trend.create!
-      feedzilla = JSON(File.read('spec/support/stories/feedzilla_australia_stories.json'))
-      Story.parse_feedzilla(feedzilla, @trend.id)
+      Story.parse_feedzilla(@feedzilla, @trend.id)
       @story = Story.first
     end
 
@@ -26,6 +29,22 @@ describe Story do
     it "should associate these stories with a trend" do
       expect(@story.trend_id).to eq(@trend.id)
     end
+  end
 
+  context "getting stories from feedzilla" do
+
+    before do 
+      @params = { :id => @trend.id }
+    end
+
+    it "should not call the API again within 10 minutes" do 
+      Story.expects(:parse_feedzilla).twice
+
+      2.times {Story.get_feedzilla(@params)}
+      Timecop.travel(Time.now + 11.minutes) do
+        Story.get_feedzilla(@params)
+      end
+
+    end
   end
 end
