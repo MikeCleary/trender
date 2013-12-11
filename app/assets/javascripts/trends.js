@@ -5,13 +5,19 @@ $(document).ready(function(){
     $('#main').vectorMap({
 
       onRegionClick: function(event, code){
-        console.log("bingo!")
         $.ajax({
           url: '/trends/trends_by_region',
           data: {country_code : code}
           // success: ...
         });
       }
+    });
+  });
+
+  $('#trends').on('click', '.trend', function(){
+    console.log('boom!');
+    $.ajax({
+      url: '/stories/list_stories'
     });
   });
 

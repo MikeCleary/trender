@@ -4,6 +4,8 @@ Trender::Application.routes.draw do
   get 'trends/locations'
   get 'trends/trends_by_region'
 
+  get 'stories/by_trend'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
