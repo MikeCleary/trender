@@ -15,9 +15,10 @@ $(document).ready(function(){
   });
 
   $('#trends').on('click', '.trend', function(){
-    var trend_id = this.getAttribute('id')
+    var trend_id = $(this).data('id');
+    var trend_subject = $(this).data('subject');
     $.ajax({
-      url: '/trends/'+ trend_id
+      url: '/trends/' + trend_id 
     });
   });
 

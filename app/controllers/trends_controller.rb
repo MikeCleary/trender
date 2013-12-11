@@ -10,9 +10,13 @@ class TrendsController < ApplicationController
   end
 
   def show
-    binding.pry
+    @trend = Trend.find(params[:id])
+    url = "http://api.feedzilla.com/v1/articles/search.json?q=#{@trend.subject}"
+    feedzilla_response = HTTParty.get(url)
+    Story.parse_feedzilla(feedzilla_response, params[:id])
+    @stories = Story.where(:trend_id => params[:id])
   end
-  
+
   def trends_by_region
     @place = Place.includes(:trends).find_by(:country_code => params[:country_code])
     @trends = @place.trends

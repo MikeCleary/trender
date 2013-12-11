@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'twitter'
+gem 'httparty'
 
 group :development, :test do 
   gem 'shoulda-matchers'
