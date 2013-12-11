@@ -3,7 +3,7 @@ When(/^the visitor clicks on a trend$/) do
 end
 
 Then(/^a list of stories for this trend appear$/) do
-  page.has_content?('.story', :text => "We love Australia")
+  page.has_content?('.story', :text => "XXX")
 end
 
 When(/^the visitor clicks the "(.*?)" button on a story$/) do |arg1|
