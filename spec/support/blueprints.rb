@@ -1,6 +1,6 @@
 require 'machinist/active_record'
 
-Place.blueprint(:vanilla) do 
+Place.blueprint(:australia) do 
   country_code { "AU" }
 end
 
@@ -14,6 +14,6 @@ end
 
 Trend.blueprint(:not_australian) do
   place_id { 42 }
-  subject { "#NotAustralian" }
+  subject { "#NotAustralia" }
 end
 
