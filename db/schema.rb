@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210164926) do
+ActiveRecord::Schema.define(version: 20131211135744) do
 
   create_table "places", force: true do |t|
     t.string   "country"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20131210164926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+  end
+
+  create_table "stories", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "trend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "trends", force: true do |t|

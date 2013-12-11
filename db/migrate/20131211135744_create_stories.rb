@@ -1,0 +1,11 @@
+class CreateStories < ActiveRecord::Migration
+  def change
+    create_table :stories do |t|
+      t.string :title
+      t.string :url
+      t.integer :trend_id
+
+      t.timestamps
+    end
+  end
+end
