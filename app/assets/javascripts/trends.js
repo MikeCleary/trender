@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function(){
   $(function(){
-    $('#trend_map').vectorMap({
+    $('#main').vectorMap({
 
       onRegionClick: function(event, code){
         console.log("bingo!")
