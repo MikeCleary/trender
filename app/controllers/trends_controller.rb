@@ -11,9 +11,7 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    url = "http://api.feedzilla.com/v1/articles/search.json?q=#{@trend.subject}"
-    feedzilla_response = HTTParty.get(url)
-    Story.parse_feedzilla(feedzilla_response, params[:id])
+    Story.parse_feedzilla(Story.get_feedzilla(params), params[:id])
     @stories = Story.where(:trend_id => params[:id])
   end
 
