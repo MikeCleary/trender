@@ -1,5 +1,5 @@
 Feature: Select country from a map
-  @wip @javascript
+  @javascript
   Scenario: A visitor chooses a country from a map
     Given the visitor is on the map page
     And thier are trends in the database

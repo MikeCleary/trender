@@ -1,0 +1,8 @@
+<% @trends_locations.each do |locale| %>
+  <li>
+    <p><%= locale.type %></p>
+    <p><%= locale.country %></p>
+    <p><%= locale.country_code %></p>
+    <p><%= locale.woeid %><p>
+  </li>
+<% end %>
