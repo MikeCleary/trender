@@ -15,9 +15,9 @@ $(document).ready(function(){
   });
 
   $('#trends').on('click', '.trend', function(){
-    console.log('boom!');
+    var trend_id = this.getAttribute('id')
     $.ajax({
-      url: '/stories/list_stories'
+      url: '/trends/'+ trend_id
     });
   });
 

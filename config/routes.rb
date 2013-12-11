@@ -1,11 +1,12 @@
 Trender::Application.routes.draw do
+  
+  root to: 'trends#map'
 
-  get 'trends/map'
+
   get 'trends/locations'
   get 'trends/trends_by_region'
 
-  get 'stories/by_trend'
-
+  resources :trends, :only => [:show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

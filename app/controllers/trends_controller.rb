@@ -9,14 +9,15 @@ class TrendsController < ApplicationController
     Country.get_countries(@trend_locations)
   end
 
+  def show
+    binding.pry
+  end
+  
   def trends_by_region
     @place = Place.includes(:trends).find_by(:country_code => params[:country_code])
     @trends = @place.trends
   end
 
-  def map
-
-  end
 
   private
 
