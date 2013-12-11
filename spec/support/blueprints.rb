@@ -1,7 +1,19 @@
 require 'machinist/active_record'
 
-Trend.blueprint(:Australian) do
+Place.blueprint(:vanilla) do 
+  country_code { "AU" }
+end
+
+Trend.blueprint(:vanilla) do
+end
+
+Trend.blueprint(:australian) do
   place_id { 3 }
-  subject { Faker::Lorem.words(1) }
+  subject { "#Australia" }
+end
+
+Trend.blueprint(:not_australian) do
+  place_id { 42 }
+  subject { "#NotAustralian" }
 end
 

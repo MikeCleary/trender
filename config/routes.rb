@@ -1,7 +1,8 @@
 Trender::Application.routes.draw do
 
-  get 'trends/locations'
   get 'trends/map'
+  get 'trends/locations'
+  get 'trends/trends_by_region'
 
 
 

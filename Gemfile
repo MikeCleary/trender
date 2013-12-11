@@ -18,6 +18,8 @@ group :development, :test do
   gem 'jasmine-rails'
   gem 'pry'
   gem 'machinist'
+  gem 'launchy'
+  # gem 'capybara/poltergeist'
 end
 
 group :doc do

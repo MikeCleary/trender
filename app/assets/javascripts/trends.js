@@ -5,9 +5,9 @@ $(document).ready(function(){
     $('#trend_map').vectorMap({
 
       onRegionClick: function(event, code){
+        console.log("bingo!")
         $.ajax({
-          dataType: "json",
-          url: 'http://localhost:3000',
+          url: '/trends/trends_by_region',
           data: {country_code : code}
           // success: ...
         });
