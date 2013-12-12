@@ -33,20 +33,19 @@ describe Story do
     end
   end
 
-  context "getting stories from feedzilla" do
+  context "getting new stories from feedzilla only if they're 10 minutes old" do
 
     before do 
-      @params = { :id => @trend.id }
+      HTTParty.stubs(:get).returns(@feedzilla)
+      params = { :id => @trend.id }
+      2.times {Story.get_stories(params)}
+      Timecop.travel(Time.now + 11.minutes) do
+        Story.get_stories(params)
+      end
     end
 
-    it "should not call the API again within 10 minutes" do 
-      Story.expects(:parse_feedzilla).twice
-
-      2.times {Story.get_stories(@params)}
-      Timecop.travel(Time.now + 11.minutes) do
-        Story.get_stories(@params)
-      end
-
+    it "create 40 stories not 60" do 
+      expect(Story.count).to eq(40)
     end
   end
 end
