@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $('#trends').on('click', '.trend', trendClick);
+  $('#side').on('click', '.trend', trendClick);
 
 });
 

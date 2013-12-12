@@ -5,7 +5,9 @@ class ReadingListsController < ApplicationController
       :story_id => params[:story_id],
       :reading_list_id => params[:reading_list_id]
       )
-    #Render Reading list show to side bar.
+    @reading_list = ReadingList.includes(:stories).includes(:trend).find(params[:reading_list_id])
+    render :list_side
+      #Render Reading list show to side bar.
   end
   
 end
