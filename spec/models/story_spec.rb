@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Story do
   context "associations" do 
     it { should belong_to(:trend) }
+    it { should have_many(:reading_list_stories) }
+    it { should have_many(:reading_lists).through(:reading_list_stories)}
   end
   
   before do 

@@ -5,8 +5,8 @@ $('#main').on('click', '.add_story', addStory)
 });
 
 function addStory(){
-  story_id = $(this).data('id')
+  var story_id = $(this).data('id')
   $.ajax({
-    url: '/reading_list/update/' + $(this).data('id')
+    url: '/reading_list/update/' + story_id
   });
 };

@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
   belongs_to :trend
+  has_many :reading_list_stories
+  has_many :reading_lists, :through => :reading_list_stories
 
   def self.get_stories(params)
     trend = Trend.includes(:stories).find(params[:id])

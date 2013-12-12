@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211161452) do
+ActiveRecord::Schema.define(version: 20131212172548) do
 
   create_table "places", force: true do |t|
     t.string   "country"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20131211161452) do
     t.string   "type"
   end
 
+  create_table "reading_list_stories", force: true do |t|
+    t.integer  "reading_list_id"
+    t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reading_lists", force: true do |t|
+    t.integer  "trend_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "stories", force: true do |t|
     t.string   "title"
     t.string   "url"
@@ -30,6 +44,7 @@ ActiveRecord::Schema.define(version: 20131211161452) do
     t.datetime "updated_at"
     t.string   "source"
     t.string   "published"
+    t.integer  "reading_list_id"
   end
 
   create_table "trends", force: true do |t|
