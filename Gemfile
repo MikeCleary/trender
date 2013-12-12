@@ -11,6 +11,7 @@ gem 'twitter'
 gem "twitter-bootstrap-rails"
 gem 'httparty'
 gem 'rails_serve_static_assets'
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do 
