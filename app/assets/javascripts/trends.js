@@ -14,7 +14,7 @@ $(document).ready(function(){
     });
   });
 
-  $('#trends').on('click', '.trend', function(){
+  $('#trends').on('click', '.trend', function (){
     var trend_id = $(this).data('id');
     var trend_subject = $(this).data('subject');
     $.ajax({

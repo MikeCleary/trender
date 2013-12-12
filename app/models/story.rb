@@ -4,7 +4,7 @@ class Story < ActiveRecord::Base
   def self.get_stories(params)
     trend = Trend.includes(:stories).find(params[:id])
     if !trend.stories.blank? && trend.stories.last.created_at < (Time.now - 10.minutes)
-      trend.stories.limit(20)
+      trend.stories.limit(20).reverse
     else
       get_feedzilla(trend)
     end
@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
 
   def self.get_feedzilla(trend)
     trend.subject.gsub!('#', '')
-    url = "http://api.feedzilla.com/v1/articles/search.json?q=#{trend.subject}&order=date&count=10"
+    url = "http://api.feedzilla.com/v1/articles/search.json?q=#{trend.subject}&count=10"
     feedzilla_response = HTTParty.get(url)
     parse_feedzilla(feedzilla_response, trend.id)
   end
@@ -29,6 +29,6 @@ class Story < ActiveRecord::Base
         )
       end
     end
-    Story.where(:trend_id => trend_id).order(:created_at => :desc).limit(20)
+    Story.where(:trend_id => trend_id).order(:created_at => :desc).limit(20).reverse
   end
 end

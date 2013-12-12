@@ -3,11 +3,11 @@ When(/^the visitor clicks on a trend$/) do
 end
 
 Then(/^a list of stories for this trend appear$/) do
-  assert 20, page.all('.story')
+  page.has_content?('.story')
 end
 
 When(/^the visitor clicks the "(.*?)" button on a story$/) do |button|
-  click_button('add')
+  click_button(button)
 end
 
 Then(/^the story appears in the users reading list$/) do
