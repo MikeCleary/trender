@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'twitter'
 gem "twitter-bootstrap-rails"
 gem 'httparty'
+gem 'rails_serve_static_assets'
 
 
 group :development, :test do 
