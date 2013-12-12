@@ -3,7 +3,7 @@ Trender::Application.routes.draw do
   get "reading_lists/add_story"
   root to: 'trends#map'
 
-
+  get 'reading_lists/add_story'
   get 'trends/locations'
   get 'trends/trends_by_region'
 

@@ -11,6 +11,10 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
+    @reading_list = ReadingList.create(
+      :trend_id => @trend.id,
+      :title => @trend.subject
+      )
     @stories = Story.get_stories(params)
   end
 
