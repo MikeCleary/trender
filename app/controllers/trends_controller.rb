@@ -11,7 +11,7 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    @stories = Story.get_feedzilla(params)
+    @stories = Story.get_stories(params)
   end
 
   def trends_by_region

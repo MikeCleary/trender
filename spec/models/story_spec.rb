@@ -6,7 +6,9 @@ describe Story do
   end
   
   before do 
-    @trend = Trend.create!
+    @trend = Trend.create!(
+      :subject => "#Cats"
+      )
     @feedzilla = JSON(File.read('spec/support/stories/feedzilla_australia_stories.json'))
   end
 
@@ -40,9 +42,9 @@ describe Story do
     it "should not call the API again within 10 minutes" do 
       Story.expects(:parse_feedzilla).twice
 
-      2.times {Story.get_feedzilla(@params)}
+      2.times {Story.get_stories(@params)}
       Timecop.travel(Time.now + 11.minutes) do
-        Story.get_feedzilla(@params)
+        Story.get_stories(@params)
       end
 
     end
