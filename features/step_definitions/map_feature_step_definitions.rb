@@ -1,5 +1,5 @@
 Given(/^the visitor is on the map page$/) do
-  visit trends_map_path
+  visit root_path
 end
 
 Given(/^there are trends in the database$/) do

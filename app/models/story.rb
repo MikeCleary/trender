@@ -4,7 +4,7 @@ class Story < ActiveRecord::Base
   def self.get_stories(params)
     trend = Trend.includes(:stories).find(params[:id])
     if !trend.stories.blank? && trend.stories.last.created_at < (Time.now - 10.minutes)
-      trend.stories
+      trend.stories.limit(20)
     else
       get_feedzilla(trend)
     end
@@ -29,6 +29,6 @@ class Story < ActiveRecord::Base
         )
       end
     end
-    Story.where(:trend_id => trend_id)
+    Story.where(:trend_id => trend_id).order(:created_at => :desc).limit(20)
   end
 end

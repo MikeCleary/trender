@@ -3,10 +3,10 @@ When(/^the visitor clicks on a trend$/) do
 end
 
 Then(/^a list of stories for this trend appear$/) do
-  page.has_content?('.story', :text => "XXX")
+  assert 20, page.all('.story')
 end
 
-When(/^the visitor clicks the "(.*?)" button on a story$/) do |arg1|
+When(/^the visitor clicks the "(.*?)" button on a story$/) do |add|
   pending # express the regexp above with the code you wish you had
 end
 
