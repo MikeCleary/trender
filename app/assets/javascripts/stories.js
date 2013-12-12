@@ -1,2 +1,12 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function(){
+
+$('#main').on('click', '.add_story', addStory)
+
+});
+
+function addStory(){
+  story_id = $(this).data('id')
+  $.ajax({
+    url: '/reading_list/update/' + $(this).data('id')
+  });
+};
