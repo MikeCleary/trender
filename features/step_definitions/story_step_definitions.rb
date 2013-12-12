@@ -7,7 +7,9 @@ Then(/^a list of stories for this trend appear$/) do
 end
 
 When(/^the visitor clicks the "(.*?)" button on a story$/) do |button|
-  click_button(button)
+  within page.all('.story').first do 
+    click_button(button)
+  end
 end
 
 Then(/^the story appears in the users reading list$/) do

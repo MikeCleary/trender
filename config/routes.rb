@@ -1,5 +1,6 @@
 Trender::Application.routes.draw do
   
+  get "reading_lists/add_story"
   root to: 'trends#map'
 
 
