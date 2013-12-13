@@ -18,6 +18,3 @@ Then(/^the story appears in the users reading list$/) do
   end
 end
 
-Then(/^that story appears$/) do
-  pending # express the regexp above with the code you wish you had
-end

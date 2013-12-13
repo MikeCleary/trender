@@ -18,5 +18,3 @@ Feature: Select country from a map and trends from list
     Then a list of stories for this trend appear
     When the visitor clicks the "Add" button on a story
     Then the story appears in the users reading list
-    When the visitor clicks the "View" button on a story
-    Then that story appears
