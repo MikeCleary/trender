@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-$('#main').on('click', '.add_story', addStory)
+  $('#main').on('click', '.add_story', addStory)
 
 });
 
@@ -16,3 +16,4 @@ function addStory(){
     }
   });
 };
+

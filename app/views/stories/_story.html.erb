@@ -2,7 +2,7 @@
   <h3><%= story.title %></h3>
   <nav class="story_nav">
     <button class="add_story btn btn-info" data-story="<%= story.id %>" data-readinglist="<%= @reading_list.id %>">Add</button>
-    <button class="view_story btn btn-info">View</button>
+    <a class="view_story btn btn-info" href="<%= story.url %>" target="_blank">View</a>
   </nav>
   <p>from <%= story.source %></p>
   <p>published on <%= story.published %></p>
