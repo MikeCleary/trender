@@ -15,7 +15,7 @@ class TrendsController < ApplicationController
       :trend_id => @trend.id,
       :title => @trend.subject
       )
-    @stories = Story.get_stories(params).order(:published => :desc)
+    @stories = Story.get_stories(params)
   end
 
   def trends_by_region

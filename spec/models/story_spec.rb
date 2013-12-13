@@ -44,10 +44,16 @@ describe Story do
       Timecop.travel(Time.now + 11.minutes) do
         Story.get_stories(params)
       end
+      @story1 = Story.all[0]
+      @story2 = Story.all[1]
     end
 
-    it "create 40 stories not 60" do 
-      expect(Story.count).to eq(40)
+    it "create 20 stories not 40" do 
+      expect(Story.count).to eq(20)
+    end
+
+    it "creates no duplicates" do
+      expect(@story1).not_to eq(@story2)
     end
   end
 end
