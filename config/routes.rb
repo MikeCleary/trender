@@ -1,16 +1,18 @@
 Trender::Application.routes.draw do
   
-  get "reading_lists/add_story"
   root to: 'trends#map'
-
+  get "reading_lists/add_story"
   get 'reading_lists/add_story'
+  
   get 'trends/locations'
   get 'trends/trends_by_region'
 
   resources :trends, :only => [:show]
 
-
-  # The priority is based upon order of creation: first created -> highest priority.
+  get '/auth/twitter/callback', :to => 'readers#create'
+  # get 'readers/authorise_twitter' , :as => :login_with_twitter
+  # get 'readers/twitter_authorisation_callback', :as => :twitter_authorisation_callback
+  # # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212181014) do
+ActiveRecord::Schema.define(version: 20131213154136) do
 
   create_table "places", force: true do |t|
     t.string   "country"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20131212181014) do
   create_table "readers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "access_token"
+    t.string   "access_token_secret"
   end
 
   create_table "reading_list_stories", force: true do |t|

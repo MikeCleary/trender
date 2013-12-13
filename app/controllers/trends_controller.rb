@@ -19,13 +19,13 @@ class TrendsController < ApplicationController
   end
 
   def trends_by_region
+
     @place = Place.includes(:trends).find_by(:country_code => params[:country_code])
-    @trends = @place.trends.order(:created_at => :desc).limit(10).reverse
+    
+    @trends = get_trends(@place, @reader)
+
+    @place.trends.order(:created_at => :desc).limit(10).reverse
+
   end
 
-
-  private
-
-  def twitter_oauth_client
-  end
 end

@@ -8,11 +8,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'twitter'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem "twitter-bootstrap-rails"
 gem 'httparty'
 gem 'rails_serve_static_assets'
 gem 'rails_12factor', group: :production
-gem 'oauth2'
+
 
 group :development, :test do 
   gem 'shoulda-matchers'

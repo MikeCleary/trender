@@ -1,0 +1,149 @@
+--- !ruby/object:Twitter::TrendResults
+attrs:
+  :trends:
+  - &1
+    :name: '#BethanyMotaGiveaway'
+    :url: http://twitter.com/search?q=%23BethanyMotaGiveaway
+    :promoted_content: 
+    :query: '%23BethanyMotaGiveaway'
+    :events: 
+  - &2
+    :name: '#MVCvPER'
+    :url: http://twitter.com/search?q=%23MVCvPER
+    :promoted_content: 
+    :query: '%23MVCvPER'
+    :events: 
+  - &4
+    :name: '#BumpShowSelenaMeetAndGreet'
+    :url: http://twitter.com/search?q=%23BumpShowSelenaMeetAndGreet
+    :promoted_content: 
+    :query: '%23BumpShowSelenaMeetAndGreet'
+    :events: 
+  - &5
+    :name: '#TheVampsDownUnder2014'
+    :url: http://twitter.com/search?q=%23TheVampsDownUnder2014
+    :promoted_content: 
+    :query: '%23TheVampsDownUnder2014'
+    :events: 
+  - &6
+    :name: '#Beyonce'
+    :url: http://twitter.com/search?q=%23Beyonce
+    :promoted_content: 
+    :query: '%23Beyonce'
+    :events: 
+  - &7
+    :name: Friday the 13th
+    :url: http://twitter.com/search?q=%22Friday+the+13th%22
+    :promoted_content: 
+    :query: '%22Friday+the+13th%22'
+    :events: 
+  - &8
+    :name: Billy Bowden
+    :url: http://twitter.com/search?q=%22Billy+Bowden%22
+    :promoted_content: 
+    :query: '%22Billy+Bowden%22'
+    :events: 
+  - &9
+    :name: Christmas
+    :url: http://twitter.com/search?q=Christmas
+    :promoted_content: 
+    :query: Christmas
+    :events: 
+  - &10
+    :name: Vukovic
+    :url: http://twitter.com/search?q=Vukovic
+    :promoted_content: 
+    :query: Vukovic
+    :events: 
+  - &11
+    :name: Haddin
+    :url: http://twitter.com/search?q=Haddin
+    :promoted_content: 
+    :query: Haddin
+    :events: 
+  :as_of: '2013-12-13T16:31:25Z'
+  :created_at: '2013-12-13T16:22:41Z'
+  :locations:
+  - :name: Australia
+    :woeid: 23424748
+collection:
+- !ruby/object:Twitter::Trend
+  attrs: *1
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: '#BethanyMotaGiveaway'
+      default_proc: 
+    freezer: &3 !ruby/object:Proc {}
+- !ruby/object:Twitter::Trend
+  attrs: *2
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: '#MVCvPER'
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *4
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: '#BumpShowSelenaMeetAndGreet'
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *5
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: '#TheVampsDownUnder2014'
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *6
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: '#Beyonce'
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *7
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: Friday the 13th
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *8
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: Billy Bowden
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *9
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: Christmas
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *10
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: Vukovic
+      default_proc: 
+    freezer: *3
+- !ruby/object:Twitter::Trend
+  attrs: *11
+  _memoized_method_cache: !ruby/object:Memoizable::Memory
+    memory: !ruby/object:ThreadSafe::Cache
+      backend:
+        :name: Haddin
+      default_proc: 
+    freezer: *3
