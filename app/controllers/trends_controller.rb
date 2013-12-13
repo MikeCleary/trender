@@ -19,13 +19,9 @@ class TrendsController < ApplicationController
   end
 
   def trends_by_region
-
+    @reader = Reader.first
     @place = Place.includes(:trends).find_by(:country_code => params[:country_code])
-    
-    @trends = get_trends(@place, @reader)
-
-    @place.trends.order(:created_at => :desc).limit(10).reverse
-
+    @trends = Trend.get_trends(@place, @reader)
   end
 
 end

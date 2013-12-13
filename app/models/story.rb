@@ -14,6 +14,7 @@ class Story < ActiveRecord::Base
 
   def self.get_feedzilla(trend)
     trend.subject.gsub!('#', '')
+    trend.subject.gsub!(' ', '_')
     url = "http://api.feedzilla.com/v1/articles/search.json?q=#{trend.subject}&order=relevance&count=10"
     feedzilla_response = HTTParty.get(url)
     parse_feedzilla(feedzilla_response, trend.id)

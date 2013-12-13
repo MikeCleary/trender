@@ -4,13 +4,17 @@ class Trend < ActiveRecord::Base
   has_many :stories, :order => ("published DESC, created_at DESC")
 
   def self.get_trends(place, reader)
-    client = Twitter::REST::Client.new do |config| 
-      config.consumer_key = Trender::Application.config.consumer_key
-      config.consumer_secret = Trender::Application.config.consumer_secret
-      config.access_token = reader.access_token
-      config.access_token_secret = reader.access_token_secret 
+    if !place.trends.blank? && place.trends.last.created_at < (Time.now - 10.minutes)
+      Trend.where(:place_id => place.id).order(:created_at => :desc).limit(10).reverse
+    else
+      client = Twitter::REST::Client.new do |config| 
+        config.consumer_key = Trender::Application.config.consumer_key
+        config.consumer_secret = Trender::Application.config.consumer_secret
+        config.access_token = reader.access_token
+        config.access_token_secret = reader.access_token_secret 
+      end
+      parse_trends(client.trends(place.woeid), place)
     end
-    trends = parse_trends(client.trends(place.woeid), place)
   end
 
   def self.parse_trends(trends, place)
@@ -22,6 +26,7 @@ class Trend < ActiveRecord::Base
         )
       end
     end
+    Trend.where(:place_id => place.id).order(:created_at => :desc).limit(10).reverse
   end
 
 end
