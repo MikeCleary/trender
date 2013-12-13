@@ -13,7 +13,9 @@ When(/^the visitor clicks the "(.*?)" button on a story$/) do |button|
 end
 
 Then(/^the story appears in the users reading list$/) do
-  pending # express the regexp above with the code you wish you had
+  within('#side') do 
+    page.has_content? '.story'
+  end
 end
 
 Then(/^that story appears$/) do
