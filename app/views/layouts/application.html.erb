@@ -9,7 +9,8 @@
 <body>
 <nav id="application_nav">
   <%= link_to "Sign in with twitter", '/auth/twitter' %>
-
+  <% if session[:logged_in] %>
+  <% end %>
 <nav>
 
 <%= yield %>

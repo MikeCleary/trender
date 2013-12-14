@@ -29,4 +29,7 @@ Trender::Application.configure do
 
   config.consumer_key = "UHdQNbLchpbU9H31RNHDQQ"
   config.consumer_secret = "UTP1CPNzHjhdEmykgQ9uJZyG2iIMzy5nxnAtpOiAQ"
+
+  config.middleware.use RackSessionAccess::Middleware
+  
 end

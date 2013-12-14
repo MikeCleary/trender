@@ -17,6 +17,7 @@ gem 'rails_12factor', group: :production
 
 
 group :development, :test do 
+  gem 'rack_session_access'
   gem 'shoulda-matchers'
   gem 'mocha'
   gem 'timecop'
@@ -29,6 +30,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'machinist'
   gem 'launchy'
+  gem 'faker'
   # gem 'capybara/poltergeist'
 end
 

@@ -4,13 +4,14 @@ Feature: Select country from a map and trends from list
   Background: 
     Given the visitor is on the map page
     And there are trends in the database
+    And there are stories in the database for that trend
 
   @javascript
   Scenario: A visitor chooses a country from a map
     When the visitor clicks on a country
     Then trends are returned for that country
 
-  @wip @javascript
+  @javascript
   Scenario: A visitor chooses a trend from a list
     When the visitor clicks on a country
     Then trends are returned for that country

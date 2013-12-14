@@ -1,3 +1,4 @@
+
 When(/^the visitor clicks on a trend$/) do
   find('li', :text => "#Australia").click
 end

@@ -1,8 +1,6 @@
 require 'machinist/active_record'
 
-Reader.blueprint(:vanilla) do 
-  access_token { "XXX" }
-  access_token_secret { "XXXX" }
+Reader.blueprint(:vanilla) do
 end
 
 Place.blueprint(:australia) do 
@@ -21,3 +19,7 @@ Trend.blueprint(:not_australian) do
   subject { "#NotAustralia" }
 end
 
+Story.blueprint(:vanilla) do 
+  title { "A Story" }
+  url { Faker::Internet.url }
+end

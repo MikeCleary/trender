@@ -33,7 +33,8 @@ Trender::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-  
+  config.middleware.use RackSessionAccess::Middleware
+
   config.consumer_key = "UHdQNbLchpbU9H31RNHDQQ"
   config.consumer_secret = "UTP1CPNzHjhdEmykgQ9uJZyG2iIMzy5nxnAtpOiAQ"
 end
