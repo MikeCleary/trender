@@ -19,7 +19,7 @@ class TrendsController < ApplicationController
   end
 
   def trends_by_region
-    @reader = Reader.first
+    @reader = Reader.find(sessions[:reader_id])
     @place = Place.includes(:trends).find_by(:country_code => params[:country_code])
     @trends = Trend.get_trends(@place, @reader)
   end

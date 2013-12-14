@@ -10,6 +10,8 @@ class ReadersController < ApplicationController
       :access_token => auth.credentials[:token],
       :access_token_secret => auth.credentials[:secret]
     )
+    session[:logged_in] = true
+    session[:reader_id] = @reader.id
     redirect_to :root
   end
 

@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Sign in with twitter", '/auth/twitter' %>
+<nav id="application_nav">
+  <%= link_to "Sign in with twitter", '/auth/twitter' %>
+
+<nav>
+
 <%= yield %>
 
 </body>
