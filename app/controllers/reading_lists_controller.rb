@@ -9,5 +9,25 @@ class ReadingListsController < ApplicationController
     render :list_side
       #Render Reading list show to side bar.
   end
+
+  def show
+    @reading_list = ReadingList.includes(:stories).find(params[:id])
+  end
+
+  def update 
+    @reading_list = ReadingList.find(params[:id])
+    if !@reading_list.stories.blank?
+      @reading_list.update_attributes(reading_list_params)
+      @reading_list.reader_id = session[:reader_id]
+      redirect_to @reading_list
+    else
+      flash[:notice] = "Cannot save list with no stories"
+      render :js => :list_side 
+    end 
+  end
   
+  private
+  def reading_list_params
+    params.require(:reading_list).permit(:title)
+  end
 end

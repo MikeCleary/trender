@@ -1,4 +1,12 @@
-<h3><%= @reading_list.trend.subject %></h3>
+<h3><%= @reading_list.title %></h3>
+<%= form_for(@reading_list) do |f| %>
+  <fieldset class="list-title">  
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset >
+    <%= f.submit :value => "Save and view", :class => "btn btn-default" %>
+  </fieldset>
+<% end %>
 <%= render @reading_list.stories %>
-<%#= link_to "Save and view", , :class => "btn btn_success" %>
 

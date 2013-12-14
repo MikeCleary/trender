@@ -23,3 +23,6 @@ Story.blueprint(:vanilla) do
   title { "A Story" }
   url { Faker::Internet.url }
 end
+
+ReadingList.blueprint(:vanilla) do 
+end
