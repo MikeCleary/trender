@@ -12,15 +12,17 @@ end
 
 When(/^a visitor clicks "(.*?)"$/) do |save_and_view|
   within('#side') do 
-    click_link(save_and_view)
+    click_button(save_and_view)
   end
 end
 
 Then(/^they a taken to their lists view$/) do
-  pending # express the regexp above with the code you wish you had
+  @reading_list = ReadingList.find(@reader.reading_lists.last.id)
+  current_path = reading_list_path(@reading_list)
 end
 
 Then(/^they see their new list$/) do
-  pending # express the regexp above with the code you wish you had
+  page.find('h3', :text => @reading_list.title)
+  page.find('li', :text => @reading_list.stories.first.title)
 end
 

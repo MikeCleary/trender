@@ -19,6 +19,7 @@ class ReadingListsController < ApplicationController
     if !@reading_list.stories.blank?
       @reading_list.update_attributes(reading_list_params)
       @reading_list.reader_id = session[:reader_id]
+      @reading_list.save
       redirect_to @reading_list
     else
       flash[:notice] = "Cannot save list with no stories"

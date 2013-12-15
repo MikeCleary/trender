@@ -50,7 +50,7 @@ describe ReadingListsController do
           :id => @reading_list.id,
           :reading_list => {:title => @reading_list.title }
         }
-        request.session[:reader_id] = @reader.id
+        session[:reader_id] = @reader.id
         put :update, params
       end
 
