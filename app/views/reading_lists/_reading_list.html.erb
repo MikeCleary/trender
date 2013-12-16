@@ -8,5 +8,6 @@
     <%= f.submit :value => "Save and view", :class => "btn btn-default" %>
   </fieldset>
 <% end %>
-<%= render @reading_list.stories %>
-
+<div id="stories">
+  <%= render @reading_list.stories %>
+</div>

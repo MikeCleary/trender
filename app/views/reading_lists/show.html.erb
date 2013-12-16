@@ -1,1 +1,5 @@
 <%= render @reading_list %>
+<%= render :partial => 'comments/comment_form', :locals => { :comment => @comment } %>
+<div id="comments">
+  <%= render @comments %>
+</div>

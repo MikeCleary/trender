@@ -11,7 +11,8 @@ class ReadingListsController < ApplicationController
   end
 
   def show
-    @reading_list = ReadingList.includes(:stories).find(params[:id])
+    @reading_list = ReadingList.includes(:stories, :comments).find(params[:id])
+    @comments = @reading_list.comments
   end
 
   def update 

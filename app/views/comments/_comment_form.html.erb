@@ -1,0 +1,7 @@
+<div class="comment-form">
+  <% comment = Comment.new %>
+  <%= form_for comment, :url => reading_list_comments_path(@reading_list), :remote => true do |f| %>
+    <%= f.text_area :body %>
+    <%= f.submit :value => "Post comment" %>
+  <% end %>
+</div>

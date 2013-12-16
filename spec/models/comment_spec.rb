@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Comment do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:reading_list) }
+  it { should belong_to(:reader) }
+  it { should have_many(:replies) }
+  it { should belong_to(:comment) }
 end

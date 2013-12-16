@@ -7,7 +7,9 @@ Trender::Application.routes.draw do
   get 'trends/trends_by_region'
 
   resources :trends, :only => [:show]
-  resources :reading_lists, :only => [:update, :show]
+  resources :reading_lists, :only => [:update, :show] do 
+    resources :comments, :only => [:create]
+  end
 
   get '/auth/twitter/callback', :to => 'readers#create'
   # get 'readers/authorise_twitter' , :as => :login_with_twitter
