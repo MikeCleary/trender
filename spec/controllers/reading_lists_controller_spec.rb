@@ -54,8 +54,9 @@ describe ReadingListsController do
         put :update, params
       end
 
-      it "should save a readers id onto the reading list" do 
-        expect(@reading_list.reader_id).to eq(@reading_list.id)
+      it "should save a readers id onto the reading list" do
+        @reading_list.reload
+        expect(@reading_list.reader_id).to eq(@reader.id)
         response.should redirect_to(@reading_list_path)
       end
     end

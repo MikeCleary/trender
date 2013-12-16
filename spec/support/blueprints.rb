@@ -26,3 +26,6 @@ end
 
 ReadingList.blueprint(:vanilla) do 
 end
+
+Comment.blueprint(:vanilla) do 
+end
