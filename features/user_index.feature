@@ -1,7 +1,7 @@
 Feature: User index
   Background: 
     Given the visitor is on the map page
-  @wip  
+
   Scenario: A member views and pages through readers
     Given there are 15 readers in the database
     And the member navigates to "View all readers"
