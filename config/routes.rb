@@ -4,7 +4,6 @@ Trender::Application.routes.draw do
   
   get 'trends/trends_by_region'
   get 'trends/locations'
-  get "reading_lists/add_story", :defaults =>  { :format => "js"}
 
   get '/auth/twitter/callback', :to => 'readers#create'
 
@@ -16,6 +15,7 @@ Trender::Application.routes.draw do
   resources :reading_lists, :only => [:update, :show, :index, :destroy] do 
     resources :comments, :only => [:create]
     member do   
+      post :add_story
       post :add_follow
       delete :remove_follow
     end

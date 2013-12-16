@@ -8,10 +8,8 @@ function addStory(){
   var story = $(this).data('story')
 
   $.ajax({
-    url: '/reading_lists/add_story/', 
-    data: {
-      story_id : story
-    }
+    url: '/reading_lists/' + story + '/add_story/', 
+    type: 'POST'
   });
 };
 

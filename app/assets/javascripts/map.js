@@ -6,7 +6,6 @@ $(document).ready(function(){
         $.ajax({
           url: '/trends/trends_by_region',
           data: {country_code : code}
-          // success: ...
         });
       }
     });
