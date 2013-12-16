@@ -9,11 +9,11 @@ class Comment < ActiveRecord::Base
 
   before_save do 
     if self.parent_id
-      get_parent
+      get_parent_reader_name
     end
   end
 
-  def get_parent
+  def get_parent_reader_name
     self.in_reply_to = Comment.includes(:reader).find(self.parent_id).reader.name
   end
 end
