@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.reading_list_id = params[:reading_list_id]
     @comment.reader_id = session[:reader_id]
+    @reading_list = ReadingList.find(params[:reading_list_id])
     if @comment.save 
       if @comment.parent_id 
         render 'reply'

@@ -1,1 +1,1 @@
-$(".replies-to-<%= comment.parent_id %>").append('<%= escape_js(render @comment) %>')
+$(".replies-to-<%= @comment.parent_id %>").append('<%= escape_javascript(render @comment) %>')

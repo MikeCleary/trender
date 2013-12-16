@@ -1,15 +1,16 @@
 <div class="comment" data-id="<%= comment.id %>">
+  <% if comment.parent_id %>
+    
   <p>
     <span><%= comment.reader.name %></span>
     <%=comment.body%>
   </p>
-  <%= render :partial => 'comments/comment_form', :locals => {:parent_id => comment.id} %>
-  <% if !comment.replies.blank? %>
-    <div class="replies-to-<%= comment.id %>">
+   <% reply = Comment.new(:parent_id => comment.id) %>
+  <%= render :partial => 'comments/comment_form', :locals => {:comment => reply } %>
+  <div class="replies-to-<%= comment.id %>">
     <% comment.replies.each do |reply| %>
-      <%= render :partial => 'comment', :locals => { :comment => reply }  %>
-    <% end %>
-    </div>
+      <%= render :partial => 'comments/comment', :locals => { :comment => reply }  %>
+  </div>
   <% end %>
 </div>
 

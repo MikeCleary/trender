@@ -13,6 +13,7 @@ class ReadingListsController < ApplicationController
   def show
     @reading_list = ReadingList.includes(:stories, :comments).find(params[:id])
     @comments = @reading_list.comments
+    @comment = Comment.new
   end
 
   def update 

@@ -2,6 +2,9 @@ class ReadersController < ApplicationController
   
   # def authorise_twitter
   # end
+  def index
+    @readers = Reader.all.limit(20)
+  end
 
   def create
     auth = request.env["omniauth.auth"]
