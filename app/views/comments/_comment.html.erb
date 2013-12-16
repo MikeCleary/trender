@@ -3,7 +3,7 @@
     <p>in reply to <span class="comment_name"><%= comment.in_reply_to %></span></p>
   <% end %>
   <p>
-    <span class="comment_name"><%= comment.reader.name %></span>
+    <span class="comment_name"><%= comment.reader.name %></span> says
     <%=comment.body%>
   </p>
    <% reply = Comment.new(:parent_id => comment.id) %>

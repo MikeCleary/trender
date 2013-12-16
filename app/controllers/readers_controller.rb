@@ -1,9 +1,8 @@
 class ReadersController < ApplicationController
   
-  # def authorise_twitter
-  # end
   def index
-    @readers = Reader.all.limit(20)
+    @page_number = Reader.paginate(params)
+    @readers = Reader.limit(20).offset(20 * @page_number)
   end
 
   def create

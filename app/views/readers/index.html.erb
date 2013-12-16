@@ -1,0 +1,10 @@
+<%= render @readers %>
+<nav class="pages">
+  <div id="page_number">
+    <%= link_to "Previous", readers_path(:page_number => @page_number - 1) %>
+    <div class="page_number">
+      <%= @page_number %>
+    </div>
+    <%= link_to "Next", readers_path(:page_number => @page_number + 1) %>
+  </div>
+</nav>

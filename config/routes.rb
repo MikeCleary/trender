@@ -6,12 +6,14 @@ Trender::Application.routes.draw do
   get 'trends/locations'
   get 'trends/trends_by_region'
 
+  get '/auth/twitter/callback', :to => 'readers#create'
+  
+  resources :readers, :only => [:index, :show]
   resources :trends, :only => [:show]
   resources :reading_lists, :only => [:update, :show] do 
     resources :comments, :only => [:create]
   end
 
-  get '/auth/twitter/callback', :to => 'readers#create'
   # get 'readers/authorise_twitter' , :as => :login_with_twitter
   # get 'readers/twitter_authorisation_callback', :as => :twitter_authorisation_callback
   # # The priority is based upon order of creation: first created -> highest priority.
