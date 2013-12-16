@@ -6,5 +6,6 @@ describe ReadingList do
     it { should belong_to(:reader) }
     it { should have_many(:reading_list_stories) }
     it { should have_many(:stories).through(:reading_list_stories) }
+    it { should have_many(:following_readers).through(:reader_libraries) }
   end
 end
