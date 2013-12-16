@@ -8,6 +8,11 @@
     <%= f.submit :value => "Save and view", :class => "btn btn-default" %>
   </fieldset>
 <% end %>
+<%= form_for(@reading_list, :method => "DELETE") do |f| %>
+  <fieldset >
+    <%= f.submit :value => "Discard", :class => "btn btn-default" %>
+  </fieldset>
+<% end %>
 <div id="stories">
   <%= render @reading_list.stories %>
 </div>

@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_filter do 
     unless session[:logged_in]
       flash[:notice] = "You must log in to comment"
-      render :text => flash[:notice]
+      return false
     end
   end  
 

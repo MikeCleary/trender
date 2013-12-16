@@ -6,13 +6,11 @@ $(document).ready(function(){
 
 function addStory(){
   var story = $(this).data('story')
-  var reading_list = $(this).data('readinglist')
 
   $.ajax({
     url: '/reading_lists/add_story/', 
     data: {
-      story_id : story, 
-      reading_list_id : reading_list
+      story_id : story
     }
   });
 };

@@ -1,5 +1,12 @@
 class TrendsController < ApplicationController
 
+  before_filter do 
+    unless session[:logged_in]
+      flash[:notice] = "You must be logged in to view trends"
+      return false
+    end
+  end
+
   def locations
     twitter_oauth_client ||= Twitter::REST::Client.new(
       :consumer_key => Trender::Application.config.consumer_key,
@@ -11,10 +18,10 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    @reading_list = ReadingList.create(
+    @reading_list = ReadingList.new(
       :trend_id => @trend.id,
       :title => @trend.subject
-      )
+    )
     @stories = Story.get_stories(params)
   end
 
@@ -23,5 +30,4 @@ class TrendsController < ApplicationController
     @place = Place.includes(:trends).find_by(:country_code => params[:country_code])
     @trends = Trend.get_trends(@place, @reader)
   end
-
 end

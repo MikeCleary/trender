@@ -1,13 +1,18 @@
 class ReadingListsController < ApplicationController
   
   def add_story
+    @story = Story.includes(:trend).find(params[:story_id])
+    @reading_list = ReadingList.find_or_create_by(
+      :title => @story.trend.subject,
+      :reader_id => session[:reader_id],
+      :trend_id => @story.trend_id
+    )
     ReadingListStory.create(
-      :story_id => params[:story_id],
-      :reading_list_id => params[:reading_list_id]
-      )
-    @reading_list = ReadingList.includes(:stories).includes(:trend).find(params[:reading_list_id])
+      :story_id => @story.id,
+      :reading_list_id => @reading_list.id
+    )
+    @reading_list = ReadingList.includes(:stories).includes(:trend).find(@reading_list)
     render :list_side
-      #Render Reading list show to side bar.
   end
 
   def show
@@ -31,7 +36,13 @@ class ReadingListsController < ApplicationController
 
   def index 
     @page_number = ReadingList.paginate(params)
-    @reading_lists = ReadingList.includes(:stories).includes(:comments).limit(20).oddset(20 * @page_number)
+    @reading_lists = ReadingList.all.includes(:stories).includes(:comments).limit(10).offset(10 * @page_number)
+  end
+
+  def destroy
+    @reading_list = ReadingList.find(params[:id])
+    @reading_list.destroy
+    redirect_to root_path
   end
   
   private

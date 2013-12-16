@@ -2,7 +2,7 @@ class ReadersController < ApplicationController
   
   def index
     @page_number = Reader.paginate(params)
-    @readers = Reader.limit(20).offset(20 * @page_number)
+    @readers = Reader.all.limit(10).offset(10 * @page_number)
   end
 
   def show
