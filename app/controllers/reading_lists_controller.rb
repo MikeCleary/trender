@@ -1,24 +1,12 @@
 class ReadingListsController < ApplicationController
-  
-  def add_story
-    @story = Story.includes(:trend).find(params[:story_id])
-    @reading_list = ReadingList.find_or_create_by(
-      :title => @story.trend.subject,
-      :reader_id => session[:reader_id],
-      :trend_id => @story.trend_id
-    )
-    ReadingListStory.create(
-      :story_id => @story.id,
-      :reading_list_id => @reading_list.id
-    )
-    @reading_list = ReadingList.includes(:stories).includes(:trend).find(@reading_list)
-    render :list_side
-  end
 
   def show
     @reading_list = ReadingList.includes(:stories, :comments).find(params[:id])
     @comments = @reading_list.comments
     @comment = Comment.new
+    if !ReaderLibrary.where(:reader_id => session[:reader], :reading_list_id => @reading_list.id ).blank?
+      @following = true
+    end
   end
 
   def update 
@@ -43,6 +31,40 @@ class ReadingListsController < ApplicationController
     @reading_list = ReadingList.find(params[:id])
     @reading_list.destroy
     redirect_to root_path
+  end
+
+  #AJAX ROUTES
+  def add_story
+    @story = Story.includes(:trend).find(params[:story_id])
+    @reading_list = ReadingList.find_or_create_by(
+      :title => @story.trend.subject,
+      :reader_id => session[:reader_id],
+      :trend_id => @story.trend_id
+    )
+    ReadingListStory.create(
+      :story_id => @story.id,
+      :reading_list_id => @reading_list.id
+    )
+    @reading_list = ReadingList.includes(:stories).includes(:trend).find(@reading_list)
+    render :list_side
+  end
+
+  def add_follow
+    ReaderLibrary.create(
+      :reading_list_id => params[:id],
+      :reader_id => session[:reader_id]
+    )
+    render :nothing => true
+  end
+
+  def remove_follow
+    binding.pry
+    follow = ReaderLibrary.where(
+      :reading_list_id => params[:id],
+      :reader_id => session[:reader_id]
+    )[0]
+    follow.destroy
+    render :nothing => true
   end
   
   private

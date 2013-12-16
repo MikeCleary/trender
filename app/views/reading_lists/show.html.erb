@@ -1,5 +1,9 @@
 <%= render @reading_list %>
 <%= render :partial => 'comments/comment_form', :locals => { :comment => @comment } %>
+
+<% if session[:logged_in] %>
+  <%= render 'follow_button' %>
+<% end %>
 <div id="comments">
   <%= render @comments %>
 </div>

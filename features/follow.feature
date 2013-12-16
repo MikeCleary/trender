@@ -6,6 +6,7 @@ Feature: Adding a list to your library
   @wip
   Scenario: A member favourites/follows a list
     Given they view a list
-    And the click the "Add to my followed lists" button
-    And the member navigates to "My library"
+    And the click the "Follow list" button
+    Then the button should change to "Following list" 
+    When the member navigates to "My library"
     Then they should see the list they followed
