@@ -8,7 +8,9 @@
 </head>
 <body>
 <nav id="application_nav">
-  <%= link_to "Sign in with twitter", '/auth/twitter' %>
+  <%= link_to "Sign in with twitter", '/auth/twitter', :class => "btn btn-primary"%>
+  <%= link_to "View all lists", reading_lists_path, :class => "btn btn-primary"%>
+  <%= link_to "View all readers", readers_path , :class => "btn btn-primary"%>
   <% if session[:logged_in] %>
   <% end %>
 </nav>

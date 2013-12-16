@@ -1,0 +1,6 @@
+<div class="reading_list">
+  <h4><%= reading_list.title %></h4>
+  <p>Stories: <%= reading_list.stories.count %></p>
+  <p>Comments: <%= reading_list.comments.count %></p>
+  <%= link_to 'View', reading_list_path(reading_list), :class => "btn btn-primary" %>
+</div>

@@ -23,6 +23,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def index 
+    @reader = Reader.includes(:comments => :replies).find(params[:reader_id])
+    @comments = @reader.comments
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:body, :parent_id)

@@ -5,6 +5,10 @@ class ReadersController < ApplicationController
     @readers = Reader.limit(20).offset(20 * @page_number)
   end
 
+  def show
+    @reader = Reader.includes(:reading_lists => :stories).find(params[:id])
+  end
+
   def create
     auth = request.env["omniauth.auth"]
     if !Reader.find_by(:name => auth.info[:name]).blank?

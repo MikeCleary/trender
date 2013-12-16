@@ -28,6 +28,11 @@ class ReadingListsController < ApplicationController
       render :js => :list_side 
     end 
   end
+
+  def index 
+    @page_number = ReadingList.paginate(params)
+    @reading_lists = ReadingList.includes(:stories).includes(:comments).limit(20).oddset(20 * @page_number)
+  end
   
   private
   def reading_list_params
