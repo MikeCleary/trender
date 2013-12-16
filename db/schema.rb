@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131215132617) do
+ActiveRecord::Schema.define(version: 20131216115250) do
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131215132617) do
     t.integer  "reader_id"
     t.integer  "reading_list_id"
     t.text     "body"
+    t.string   "in_reply_to"
   end
 
   create_table "places", force: true do |t|

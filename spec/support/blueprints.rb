@@ -1,6 +1,10 @@
 require 'machinist/active_record'
 
-Reader.blueprint(:vanilla) do
+Reader.blueprint(:vanilla) do 
+end
+
+Reader.blueprint(:bruce) do
+  name { "Bruce" }
 end
 
 Place.blueprint(:australia) do 

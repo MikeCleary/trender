@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CommentsController do
   before do 
-    @reader = Reader.make!(:vanilla)
+    @reader = Reader.make!(:bruce)
     @reading_list = ReadingList.make!(:vanilla)
   end
   context "create" do 
@@ -99,6 +99,7 @@ describe CommentsController do
 
     it "should associate the reply with its parent comment" do 
       expect(@reply.parent_id).to eq(@comment.id)
+      expect(@reply.in_reply_to).to eq(@comment.reader.name)
     end
   end
 end
