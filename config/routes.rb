@@ -8,6 +8,8 @@ Trender::Application.routes.draw do
   get '/auth/twitter/callback', :to => 'readers#create'
   post 'reading_lists/add_story/:id', :to => 'reading_lists#add_story'
 
+  get 'searches/search'
+
   resources :readers, :only => [:index, :show] do
     resources :comments, :only => [:index]
   end

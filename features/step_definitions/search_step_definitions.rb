@@ -12,14 +12,15 @@ Given(/^the visitor is on a page$/) do
 end
 
 When(/^the put "(.*?)" into the seach field$/) do |search_term|
-  fill_in 'Search', :with => search_term
+  fill_in 'search', :with => search_term
 end
 
-When(/^click "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^they should see the reading list "(.*?)"$/) do |searched_for|
+  page.find('.reading_list', :text => searched_for)
 end
 
-Then(/^they should see the reading list "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^they should see a message telling them nothing was found$/) do
+  page.has_content?(:text => "Your search returned no results")
 end
+
 

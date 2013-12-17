@@ -1,0 +1,8 @@
+<div id="search">
+  <%= form_tag 'searches/search', :method => 'get' do %>
+    <fieldset>
+      <%= text_field_tag :search, "Enter search term" %>
+    </fieldset>
+    <%= submit_tag :search %>
+  <% end %>
+</div>
