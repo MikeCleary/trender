@@ -11,8 +11,12 @@ class TopicsController < ApplicationController
     @topic
   end
 
-  def index
-    binding.pry
+  def reading_lists
+    @topics = Topic.all
+    @page_number = ReadingList.paginate(params)
+    @topic = Topic.includes(:reading_lists).find(params[:id])
+    @reading_lists = @topic.reading_lists.limit(10).offset(10 * @page_number)
+    render 'reading_lists/index'
   end
 
   private

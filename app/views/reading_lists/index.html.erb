@@ -1,12 +1,22 @@
-<% @reading_lists.each do |reading_list| %>
-  <%= render :partial => 'reading_lists/reading_list_brief', :locals => {:reading_list => reading_list} %>
-<% end %>
-<nav class="pages">
-  <div id="page_number">
-    <%= link_to "Previous", reading_lists_path(:page_number => @page_number - 1) %>
-    <div class="page_number">
-      <%= @page_number %>
+<div id="topics">
+  <% unless @topics.blank? %>
+    <%= @topics.each do |topic| %>
+      <%= link_to topic.name, reading_lists_topic_path(topic) %>
+      <p>(<%= topic.reading_lists.count %>)</p>
+    <% end %>
+  <% end %>
+</div>
+<div id="lists">
+  <% @reading_lists.each do |reading_list| %>
+    <%= render :partial => 'reading_lists/reading_list_brief', :locals => {:reading_list => reading_list} %>
+  <% end %>
+  <nav class="pages">
+    <div id="page_number">
+      <%= link_to "Previous", reading_lists_path(:page_number => @page_number - 1) %>
+      <div class="page_number">
+        <%= @page_number %>
+      </div>
+      <%= link_to "Next", reading_lists_path(:page_number => @page_number + 1) %>
     </div>
-    <%= link_to "Next", reading_lists_path(:page_number => @page_number + 1) %>
-  </div>
-</nav>
+  </nav>
+</div>

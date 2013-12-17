@@ -1,0 +1,4 @@
+<%= form_for(@reading_list) do |f| %>
+  <%= f.text_field :title, :placeholder => @reading_list.trend.subject %>
+  <%= f.submit :value => "Save and view", :class => "btn btn-default" %>
+<% end %>

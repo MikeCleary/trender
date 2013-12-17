@@ -13,7 +13,7 @@ class ReadingListsController < ApplicationController
 
   def update 
     @reading_list = ReadingList.find(params[:id])
-    if !@reading_list.stories.blank?
+    unless @reading_list.stories.blank?
       @reading_list.update_attributes(reading_list_params)
       @reading_list.reader_id = session[:reader_id]
       @reading_list.save
@@ -25,6 +25,7 @@ class ReadingListsController < ApplicationController
   end
 
   def index 
+    @topics = Topic.all
     @page_number = ReadingList.paginate(params)
     @reading_lists = ReadingList.all.includes(:stories).includes(:comments).limit(10).offset(10 * @page_number)
   end

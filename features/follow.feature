@@ -1,7 +1,7 @@
 Feature: Adding a list to your library
   Background: 
     Given the visitor is on the map page
-    And there are 15 reading lists in the database
+    And there is a reading list in the database
   @javascript
   Scenario: A member favourites/follows a list
     Given they view a list

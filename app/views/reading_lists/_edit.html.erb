@@ -1,0 +1,19 @@
+<p>Add topics</p>
+<%= form_for @topic, :url => reading_list_topics_path(@reading_list), :remote => true do |f|%>
+  <%= f.text_field :name %>
+  <%= f.submit :add_topic %>
+<% end %>
+<p>List Details</p>
+<%= form_for(@reading_list) do |f| %>
+  <fieldset>  
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>  
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+  <fieldset >
+    <%= f.submit :value => "Save changes", :class => "btn btn-default" %>
+  </fieldset>
+<% end %>

@@ -1,6 +1,9 @@
+Given(/^there is a reading list in the database$/) do
+  @reading_list = ReadingList.make!(:followed)
+  @reading_list.reader_id = 5
+end
+
 Given(/^they view a list$/) do
-  @reading_list = ReadingList.first
-  @reading_list.title = "Followed list"
   visit reading_list_path(@reading_list)
 end
 

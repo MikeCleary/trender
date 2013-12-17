@@ -48,6 +48,10 @@ ReadingList.blueprint(:to_find) do
   title { "Title to be found" }
 end
 
+ReadingList.blueprint(:followed) do 
+  title { "Followed list" }
+end
+
 
 ##COMMENTS
 Comment.blueprint(:vanilla) do 

@@ -22,6 +22,12 @@ Trender::Application.routes.draw do
     resources :comments, :only => [:index, :destroy]
   end
   
+  resources :topics, :only => [] do 
+    member do 
+      get :reading_lists
+    end
+  end
+
   resources :trends, :only => [:show]
   resources :reading_lists, :only => [:update, :show, :index, :destroy] do 
     resources :topics, :only => [:create]
