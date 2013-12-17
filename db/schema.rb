@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217135127) do
+ActiveRecord::Schema.define(version: 20131217163047) do
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -72,12 +72,20 @@ ActiveRecord::Schema.define(version: 20131217135127) do
     t.datetime "updated_at"
   end
 
+  create_table "reading_list_topics", force: true do |t|
+    t.integer  "reading_list_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reading_lists", force: true do |t|
     t.integer  "trend_id"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "reader_id"
+    t.text     "description"
   end
 
   create_table "stories", force: true do |t|
@@ -89,6 +97,12 @@ ActiveRecord::Schema.define(version: 20131217135127) do
     t.string   "source"
     t.string   "published"
     t.integer  "reading_list_id"
+  end
+
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "trends", force: true do |t|

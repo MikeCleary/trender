@@ -1,7 +1,9 @@
 class ReadingListsController < ApplicationController
 
   def show
-    @reading_list = ReadingList.includes(:stories, :comments).find(params[:id])
+    @reading_list = ReadingList.includes(:stories, :comments, :topics).find(params[:id])
+    @topic = Topic.new
+    @topics = @reading_list.topics
     @comments = @reading_list.comments
     @comment = Comment.new
     if ReaderLibrary.find_by(:reader_id => session[:reader_id], :reading_list_id => @reading_list.id )

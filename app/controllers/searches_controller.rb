@@ -8,4 +8,5 @@ class SearchesController < ApplicationController
       render :none_found
     end
   end
+  
 end

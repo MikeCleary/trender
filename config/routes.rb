@@ -24,6 +24,7 @@ Trender::Application.routes.draw do
   
   resources :trends, :only => [:show]
   resources :reading_lists, :only => [:update, :show, :index, :destroy] do 
+    resources :topics, :only => [:create]
     resources :comments, :only => [:create]
     member do   
       post :add_follow
