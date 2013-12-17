@@ -4,7 +4,7 @@ class ReadingListsController < ApplicationController
     @reading_list = ReadingList.includes(:stories, :comments).find(params[:id])
     @comments = @reading_list.comments
     @comment = Comment.new
-    if !ReaderLibrary.where(:reader_id => session[:reader], :reading_list_id => @reading_list.id ).blank?
+    if ReaderLibrary.find_by(:reader_id => session[:reader_id], :reading_list_id => @reading_list.id )
       @following = true
     end
   end
@@ -57,7 +57,6 @@ class ReadingListsController < ApplicationController
   end
 
   def remove_follow
-    binding.pry
     follow = ReaderLibrary.where(
       :reading_list_id => params[:id],
       :reader_id => session[:reader_id]

@@ -11,6 +11,6 @@ Feature: Searchable
 
   Scenario: A visitor searches and finds nothing
     Given the visitor is on a page
-    When the put "blah" into the seach field
+    When the put "Not in database" into the search field
     And the click the "search" button
     Then they should see a message telling them nothing was found

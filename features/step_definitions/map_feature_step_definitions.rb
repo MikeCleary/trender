@@ -1,6 +1,7 @@
 Given(/^the visitor is on the map page$/) do
   @reader = Reader.make!(:vanilla)
   page.set_rack_session(:reader_id => @reader.id)
+  page.set_rack_session(:logged_in => true)
   visit root_path
 end
 

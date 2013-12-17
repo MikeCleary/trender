@@ -2,7 +2,13 @@
 <%= render :partial => 'comments/comment_form', :locals => { :comment => @comment } %>
 
 <% if session[:logged_in] %>
-  <%= render 'follow_button' %>
+  <button class="btn btn-primary follow" data-list="<%= @reading_list.id %>">
+    <% if @following %>
+      Following
+    <% else %>
+      Follow
+    <% end %>
+  </button>
 <% end %>
 <div id="comments">
   <%= render @comments %>
