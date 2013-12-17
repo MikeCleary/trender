@@ -13,6 +13,8 @@ Trender::Application.routes.draw do
 
   get 'searches/search'
 
+  resources :stories, :only => [:destroy]
+
   resources :readers, :only => [:index, :show] do
     member do 
       get :reading_lists

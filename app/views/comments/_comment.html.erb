@@ -8,7 +8,7 @@
       <%=comment.body%>
     </p>
     <% if comment.reader.id == session[:reader_id] || moderator_signed_in? %>
-      <%= render :partial => 'comments/delete_button', :locals => {:comment => comment}%>
+      <%= link_to "remove comment", reader_comment_path(comment.reading_list.id,comment.id), :method => :delete %>
     <% end %>
   </div>
    <% reply = Comment.new(:parent_id => comment.id) %>

@@ -8,11 +8,18 @@
     <%= f.submit :value => "Save and view", :class => "btn btn-default" %>
   </fieldset>
 <% end %>
-<%= form_for(@reading_list, :method => "DELETE") do |f| %>
-  <fieldset >
-    <%= f.submit :value => "Discard", :class => "btn btn-default" %>
-  </fieldset>
+<% if @reading_list.id == session[:reader_id] || moderator_signed_in? %>
+  <%= form_for(@reading_list, :method => "DELETE") do |f| %>
+    <fieldset >
+      <%= f.submit :value => "Discard", :class => "btn btn-default" %>
+    </fieldset>
+  <% end %>
 <% end %>
 <div id="stories">
-  <%= render @reading_list.stories %>
+  <% @reading_list.stories.each do |story| %>
+    <%= render story %>
+    <% if @reading_list.reader.id == session[:reader_id] || moderator_signed_in?%>
+      <%= link_to "remove story", story_path(story), :method => :delete %>
+    <% end %>
+  <% end %>
 </div>
