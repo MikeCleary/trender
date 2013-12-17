@@ -2,10 +2,15 @@
   <% if comment.parent_id %>
     <p>in reply to <span class="comment_name"><%= comment.in_reply_to %></span></p>
   <% end %>
-  <p>
-    <span class="comment_name"><%= comment.reader.name %></span> says
-    <%=comment.body%>
-  </p>
+  <div class="comment-body">
+    <p>
+      <span class="comment_name"><%= comment.reader.name %></span> says
+      <%=comment.body%>
+    </p>
+    <% if comment.reader.id == session[:reader_id] || moderator_signed_in? %>
+      <%= render :partial => 'comments/delete_button', :locals => {:comment => comment}%>
+    <% end %>
+  </div>
    <% reply = Comment.new(:parent_id => comment.id) %>
   <%= render :partial => 'comments/comment_form', :locals => {:comment => reply } %>
   <div class="replies-to-<%= comment.id %> replies">

@@ -16,6 +16,13 @@ class ReadersController < ApplicationController
     @reader = Reader.includes(:reading_lists => :stories).find(params[:id])
   end
 
+  def sign_out
+    session[:reader_id] = nil  
+    session[:logged_in] = false
+    flash[:notice] = "signed out"
+    redirect_to root_path
+  end
+
   def create
     auth = request.env["omniauth.auth"]
     if !Reader.find_by(:name => auth.info[:name]).blank?

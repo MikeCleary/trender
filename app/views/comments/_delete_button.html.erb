@@ -1,0 +1,3 @@
+<%= form_for(comment, :url => reader_comment_path(comment.reading_list.id,comment.id), :method => "delete") do |c| %>
+  <%= c.submit :delete, :class => "btn btn-danger" %>
+<% end %>

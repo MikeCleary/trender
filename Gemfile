@@ -16,6 +16,7 @@ gem 'rails_serve_static_assets'
 gem 'rails_12factor', group: :production
 gem 'thinking-sphinx'
 gem 'mysql2'
+gem 'devise'
 
 
 group :development, :test do 

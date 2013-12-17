@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216175501) do
+ActiveRecord::Schema.define(version: 20131217135127) do
 
   create_table "comments", force: true do |t|
     t.datetime "created_at"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 20131216175501) do
     t.text     "body"
     t.string   "in_reply_to"
   end
+
+  create_table "moderators", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+  end
+
+  add_index "moderators", ["email"], name: "index_moderators_on_email", unique: true, using: :btree
+  add_index "moderators", ["reset_password_token"], name: "index_moderators_on_reset_password_token", unique: true, using: :btree
 
   create_table "places", force: true do |t|
     t.string   "country"

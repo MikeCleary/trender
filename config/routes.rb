@@ -1,11 +1,14 @@
 Trender::Application.routes.draw do
   
+  devise_for :moderators
   root to: 'trends#map'
   
   get 'trends/trends_by_region'
   get 'trends/locations'
 
   get '/auth/twitter/callback', :to => 'readers#create'
+  get '/sign_out', :to => 'readers#sign_out'
+
   post 'reading_lists/add_story/:id', :to => 'reading_lists#add_story'
 
   get 'searches/search'
@@ -14,7 +17,7 @@ Trender::Application.routes.draw do
     member do 
       get :reading_lists
     end
-    resources :comments, :only => [:index]
+    resources :comments, :only => [:index, :destroy]
   end
   
   resources :trends, :only => [:show]

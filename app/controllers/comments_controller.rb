@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
   before_filter do 
-    unless session[:logged_in]
+    unless session[:logged_in] || moderate_signed_in?
       flash[:notice] = "You must log in to comment"
-      return false
+      redirect :back
     end
   end  
 
@@ -26,6 +26,12 @@ class CommentsController < ApplicationController
   def index 
     @reader = Reader.includes(:comments => :replies).find(params[:reader_id])
     @comments = @reader.comments
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    redirect_to :back
   end
 
   private
