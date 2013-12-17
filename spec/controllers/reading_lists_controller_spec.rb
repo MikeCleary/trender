@@ -6,12 +6,15 @@ describe ReadingListsController do
     @reader = Reader.make!(:vanilla)
     @reading_list = ReadingList.make!(:vanilla)
     @story = Story.make!(:vanilla)
+    @trend = Trend.make!(:vanilla)
+    @story.trend_id = @trend.id
+    @story.save
   end
 
   describe "add_story" do
     before do 
       params = { 
-        :story_id => @story.id,
+        :id => @story.id,
         :reading_list_id => @reading_list.id,
         :format => "js"
         }

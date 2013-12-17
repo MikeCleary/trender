@@ -25,4 +25,3 @@ Then(/^they see their new list$/) do
   page.find('h3', :text => @reading_list.title)
   page.find('li', :text => @reading_list.stories.first.title)
 end
-
