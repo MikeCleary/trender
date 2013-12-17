@@ -4,7 +4,11 @@ Given(/^they view a list$/) do
   end
 end
 
-Given(/^the click the "(.*?)" button$/) do |arg1|
+Given(/^the click the "(.*?)" button$/) do |button|
+  click_button(button)
+end
+
+Then(/^the button should change to "(.*?)"$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
