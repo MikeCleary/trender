@@ -34,6 +34,8 @@ describe CommentsController do
     context "not logged in" do 
       before do
         session[:reader_id] = @reader.id
+        request.env["HTTP_REFERER"] = reading_list_path(@reading_list)
+
         params = {
           :format => "js",
           :reading_list_id => @reading_list.id,

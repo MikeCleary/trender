@@ -19,6 +19,9 @@
     <%= link_to "My library", reading_lists_reader_path(session[:reader_id]) %>
     <%= link_to "Sign out", sign_out_path %>
   <% end %>
+  <% if moderator_signed_in? %>
+    <%= link_to "Moderator sign out", '/moderators/sign_out', :method => :delete %>
+  <% end %>
 </nav>
 <%= render 'searches/search' %>
 

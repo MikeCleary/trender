@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
   before_filter do 
-    unless session[:logged_in] || moderate_signed_in?
+    unless session[:logged_in] || moderator_signed_in?
       flash[:notice] = "You must log in to comment"
-      redirect :back
+      redirect_to :back
     end
   end  
 
