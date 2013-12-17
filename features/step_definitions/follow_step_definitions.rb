@@ -1,17 +1,17 @@
 Given(/^they view a list$/) do
-  within(page.all(:css, ".reading_list").first) do 
-    click_link "View"
-  end
+  @reading_list = ReadingList.first
+  @reading_list.title = "Followed list"
+  visit reading_list_path(@reading_list)
 end
 
 Given(/^the click the "(.*?)" button$/) do |button|
   click_button(button)
 end
 
-Then(/^the button should change to "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^the button should change to "(.*?)"$/) do |button_text|
+  page.has_content?('#follow', :text => button_text)
 end
 
 Then(/^they should see the list they followed$/) do
-  pending # express the regexp above with the code you wish you had
+  page.has_content?('.reading_list', :text => "Followed list")
 end

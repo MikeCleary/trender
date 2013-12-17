@@ -11,6 +11,9 @@ Trender::Application.routes.draw do
   get 'searches/search'
 
   resources :readers, :only => [:index, :show] do
+    member do 
+      get :reading_lists
+    end
     resources :comments, :only => [:index]
   end
   

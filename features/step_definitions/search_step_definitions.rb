@@ -11,7 +11,7 @@ Given(/^the visitor is on a page$/) do
   visit root_path
 end
 
-When(/^the put "(.*?)" into the search field$/) do |search_term|
+When(/^they put "(.*?)" into the search field$/) do |search_term|
   fill_in 'search', :with => search_term
 end
 
