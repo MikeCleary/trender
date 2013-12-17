@@ -14,6 +14,8 @@ gem "twitter-bootstrap-rails"
 gem 'httparty'
 gem 'rails_serve_static_assets'
 gem 'rails_12factor', group: :production
+gem 'thinking-sphinx'
+gem 'mysql2'
 
 
 group :development, :test do 

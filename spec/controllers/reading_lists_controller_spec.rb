@@ -4,31 +4,32 @@ describe ReadingListsController do
   
   before do     
     @reader = Reader.make!(:vanilla)
-    @reading_list = ReadingList.make!(:vanilla)
-    @story = Story.make!(:vanilla)
     @trend = Trend.make!(:vanilla)
-    @story.trend_id = @trend.id
-    @story.save
+    @story = Story.make!(:vanilla)
   end
 
   describe "add_story" do
     before do 
       params = { 
         :id => @story.id,
-        :reading_list_id => @reading_list.id,
         :format => "js"
         }
+      session[:reader_id] = @reader.id
       get 'add_story', params
     end 
 
     it "links a story with a reading_list" do
       @reading_list_story = ReadingListStory.last
+      @reading_list = ReadingList.last
       expect(@reading_list_story.story_id).to eq(@story.id)
       expect(@reading_list_story.reading_list_id).to eq(@reading_list.id)
     end
   end
 
   describe "saving a reading list" do
+    before do 
+      @reading_list = ReadingList.make!(:vanilla)
+    end
     
     context "invalid data" do 
       before do 

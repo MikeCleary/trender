@@ -37,7 +37,6 @@ class ReadingListsController < ApplicationController
   def add_story
     @story = Story.includes(:trend).find(params[:id])
     @reading_list = ReadingList.find_or_create_by(
-      :title => @story.trend.subject,
       :reader_id => session[:reader_id],
       :trend_id => @story.trend_id
     )

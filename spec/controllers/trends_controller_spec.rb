@@ -4,7 +4,7 @@ describe TrendsController do
 
   describe "Obtaining trend locations" do
     before do
-      get :locations
+      # get :locations
     end
 
     it "should return a twitter api bearer token" do
