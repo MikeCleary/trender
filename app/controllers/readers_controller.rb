@@ -32,15 +32,21 @@ class ReadersController < ApplicationController
       :access_token_secret => auth.credentials[:secret]  
       )
     else
-      @reader = Reader.create(
-      :name => auth.info[:name],
-      :access_token => auth.credentials[:token],
-      :access_token_secret => auth.credentials[:secret]
-    )
+      @reader = Reader.new
+      @reader.name = auth.info[:name],
+      @reader.access_token = auth.credentials[:token],
+      @reader.access_token_secret = auth.credentials[:secret]
+      @reader.save
     end
     session[:logged_in] = true
     session[:reader_id] = @reader.id
     session[:reader] = @reader.name
     redirect_to :root
   end
+
+  # private 
+  # def reader_attributes
+  #   params.require(:auth)
+  # end
+
 end
