@@ -1,4 +1,4 @@
-<div id="topics">
+<div id="topics row">
   <h5>Topics</h5>
   <% unless @topics.blank? %>
     <% @topics.each do |topic| %>
@@ -7,11 +7,16 @@
     <% end %>
   <% end %>
 </div>
-<div id="lists">
+
+<div id="lists row">
+
   <% @reading_lists.each do |reading_list| %>
     <%= render :partial => 'reading_lists/reading_list_brief', :locals => {:reading_list => reading_list} %>
   <% end %>
-  <nav class="pages">
+
+</div>
+
+  <nav class="pages row">
     <div id="page_number">
       <%= link_to "Previous", reading_lists_path(:page_number => @page_number - 1) %>
       <div class="page_number">
@@ -20,4 +25,3 @@
       <%= link_to "Next", reading_lists_path(:page_number => @page_number + 1) %>
     </div>
   </nav>
-</div>

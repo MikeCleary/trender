@@ -1,7 +1,8 @@
 class TopicsController < ApplicationController
 
   def create
-    unless @topic = Topic.find_by(:name => params[:topic][:name])
+    @topic = Topic.find_by(:name => params[:topic][:name])
+    unless @topic
       @topic = Topic.create(topic_params)
     end
     ReadingListTopic.create(
