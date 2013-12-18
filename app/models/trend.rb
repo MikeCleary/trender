@@ -29,4 +29,13 @@ class Trend < ActiveRecord::Base
     Trend.where(:place_id => place.id).order(:created_at => :desc).limit(10).reverse
   end
 
+  def querify
+    self.subject.gsub! '#', '' 
+    self.subject.gsub! ' ', '_' 
+    if self.subject.index(/[a-z][A-Z]/)
+      self.subject.insert(self.subject.index(/[a-z][A-Z]/)+1, '_')
+      self.querify
+    end
+    self.subject
+  end
 end
