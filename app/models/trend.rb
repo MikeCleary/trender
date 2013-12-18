@@ -4,6 +4,7 @@ class Trend < ActiveRecord::Base
   has_many :stories, :order => ("published DESC, created_at DESC")
 
   def self.get_trends(place, reader)
+    binding.pry
     if !place.trends.blank? && place.trends.last.created_at > (Time.now - 10.minutes)
       Trend.where(:place_id => place.id).order(:created_at => :desc).limit(10).reverse
     else

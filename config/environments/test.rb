@@ -37,6 +37,6 @@ Trender::Application.configure do
 
   twitter_secrets = YAML::load_file('config/omniauth.yml')[Rails.env]
 
-  config.consumer_key = twitter_secrets['twitter_secret']
-  config.consumer_secret = twitter_secrets['twitter_id']
+  config.consumer_key = twitter_secrets['twitter_id']
+  config.consumer_secret = twitter_secrets['twitter_secret']
 end
