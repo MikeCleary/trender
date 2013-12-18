@@ -8,3 +8,21 @@
 .comment_name {
   font-weight: bold;
 }
+
+.comment_body {
+  font-style: italic;
+}
+
+.comment {
+  border-radius: 5px;
+  border-bottom: 2px solid lightgrey;
+  padding: 8px;
+  box-shadow: 4px 4px 2px #EBEBEB;
+  background-color: #FFFFFF;
+  width: 400px;
+}
+
+.new_comment textarea {
+  width: 400px;
+  border-radius: 3px;
+}

@@ -25,7 +25,7 @@ class TrendsController < ApplicationController
     @stories = Story.get_stories(params)
     if @stories.blank? 
       flash[:notice] = "No Articles Found"
-      render
+      redirect_to :back
     else
       @stories
     end

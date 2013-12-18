@@ -1,10 +1,10 @@
-<div class="comment" data-id="<%= comment.id %>">
+<div class="comment-container" data-id="<%= comment.id %>">
   <% if comment.parent_id %>
     <p>in reply to <span class="comment_name"><%= comment.in_reply_to %></span></p>
   <% end %>
-  <div class="comment-body">
-    <p>
+  <div  class="comment">
       <span class="comment_name"><%= comment.reader.name %></span> says
+    <p class="comment_body">
       <%=comment.body%>
     </p>
     <% if comment.reader.id == session[:reader_id] || moderator_signed_in? %>
