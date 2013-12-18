@@ -77,4 +77,7 @@ Trender::Application.configure do
   config.serve_static_assets = true
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.consumer_key = ENV['twitter_secret']
+  config.consumer_secret = ENV['twitter_id']
 end

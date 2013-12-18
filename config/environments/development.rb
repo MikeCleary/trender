@@ -27,8 +27,10 @@ Trender::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.consumer_key = "UHdQNbLchpbU9H31RNHDQQ"
-  config.consumer_secret = "UTP1CPNzHjhdEmykgQ9uJZyG2iIMzy5nxnAtpOiAQ"
+  twitter_secrets = YAML::load_file('config/omniauth.yml')[Rails.env]
+
+  config.consumer_key = twitter_secrets['twitter_secret']
+  config.consumer_secret = twitter_secrets['twitter_id']
 
   config.middleware.use RackSessionAccess::Middleware
   
