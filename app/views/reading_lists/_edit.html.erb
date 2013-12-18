@@ -1,7 +1,7 @@
 <p>Add topics</p>
 <%= form_for @topic, :url => reading_list_topics_path(@reading_list), :remote => true do |f|%>
   <%= f.text_field :name %>
-  <%= f.submit :add_topic %>
+  <%= f.submit "Add topic" %>
 <% end %>
 <p>List Details</p>
 <%= form_for(@reading_list) do |f| %>

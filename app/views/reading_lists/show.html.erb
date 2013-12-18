@@ -5,7 +5,7 @@
   </div>
 <% end %>
 
-<% if @reading_list.id == session[:reader_id] || moderator_signed_in? %>
+<% if @reading_list.reader_id == session[:reader_id] || moderator_signed_in? %>
   <%= form_for(@reading_list, :method => "DELETE") do |f| %>
     <fieldset >
       <%= f.submit :value => "Discard", :class => "btn btn-default" %>

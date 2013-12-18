@@ -56,3 +56,9 @@ end
 ##COMMENTS
 Comment.blueprint(:vanilla) do 
 end
+
+
+##TOPICS
+Topic.blueprint(:Jam) do 
+  name { "Jam" }
+end
