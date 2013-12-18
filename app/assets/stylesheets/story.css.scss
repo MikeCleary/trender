@@ -1,6 +1,22 @@
 .story {
-  padding: 2px;
-  background-color: #6E6C6C;
-  border: solid 1px #443F3F;
-  color: white;
+  margin-bottom: 2px;
+  color: black;
+  list-style-type: none;
+  border-radius: 5px;
+  border-bottom: 2px solid lightgrey;
+  padding: 6px;
+  box-shadow: 4px 4px 2px #EBEBEB;
+}
+
+.publishing_details{
+  text-align: left;
+  float: left;
+}
+
+.story_nav {
+  float: right;
+}
+
+.publishing-details p {
+  font-style: italic;
 }

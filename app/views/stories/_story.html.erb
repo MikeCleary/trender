@@ -1,9 +1,11 @@
 <li class="story">
-  <h3><%= story.title %></h3>
+  <h5><%= story.title %></h5>
   <nav class="story_nav">
     <button class="add_story btn btn-info" data-story="<%= story.id %>" data-readinglist="<%= @reading_list.id %>">Add</button>
     <a class="view_story btn btn-info" href="<%= story.url %>" target="_blank">View</a>
   </nav>
-  <p>from <%= story.source %></p>
-  <p>published on <%= story.published %></p>
+  <div class="publishing-details">
+    <p>from <%= story.source %></p>
+    <p>published on <%= story.published %></p>
+  </div>
 </li>

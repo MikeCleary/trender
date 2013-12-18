@@ -1,6 +1,16 @@
 .trend {
-  padding: 2px;
-  background-color: #6E6C6C;
-  border: solid 1px #443F3F;
+  margin-bottom: 2px;
+  background-color: #4099FF;
   color: white;
+  list-style-type: none;
+  border-radius: 5px;
+  font-size: 0.8em;
+  text-align: center;
+  box-shadow: 4px 4px 1px #EBEBEB;
+  cursor: pointer;
+}
+
+.trend:hover {
+  background-color: #1D7EEC;
+  box-shadow: 2px 2px 0px #EBEBEB;
 }

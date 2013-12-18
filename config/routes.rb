@@ -11,7 +11,7 @@ Trender::Application.routes.draw do
 
   post 'reading_lists/add_story/:id', :to => 'reading_lists#add_story'
 
-  get 'searches/search'
+  get 'searches/search', :to => 'searches#search'
 
   resources :stories, :only => [:destroy]
 

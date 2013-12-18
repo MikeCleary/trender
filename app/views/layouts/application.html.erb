@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Trender</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if flash[:notice] %>
-  <%= bootstrap_flash %>
-<% end %>
-<nav id="application_nav">
-  <%= link_to "Sign in with twitter", '/auth/twitter', :class => "btn btn-primary"%>
-  <%= link_to "View all lists", reading_lists_path, :class => "btn btn-primary"%>
-  <%= link_to "View all readers", readers_path , :class => "btn btn-primary"%>
-  <% if session[:logged_in] %>
-    <p>Logged in as: <%= session[:reader] %></p>
-    <%= link_to "My library", reading_lists_reader_path(session[:reader_id]) %>
-    <%= link_to "Sign out", sign_out_path %>
-  <% end %>
-  <% if moderator_signed_in? %>
-    <%= link_to "Moderator sign out", '/moderators/sign_out', :method => :delete %>
-  <% end %>
-</nav>
-<%= render 'searches/search' %>
+  <head>
+    <title>Trender</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body class="container">
+    <% if flash[:notice] %>
+        <%= bootstrap_flash %>
+    <% end %>
+    <nav id="application_nav" class="row">
+      <%= link_to "Sign in with twitter", '/auth/twitter', :class => "btn btn-primary"%>
+      <%= link_to "View all lists", reading_lists_path, :class => "btn btn-primary"%>
+      <%= link_to "View all readers", readers_path , :class => "btn btn-primary"%>
+      <% if session[:logged_in] %>
+        <p>Logged in as: <%= session[:reader] %></p>
+        <%= link_to "My library", reading_lists_reader_path(session[:reader_id]) %>
+        <%= link_to "Sign out", sign_out_path %>
+      <% end %>
+      <% if moderator_signed_in? %>
+        <%= link_to "Moderator sign out", '/moderators/sign_out', :method => :delete %>
+      <% end %>
+    </nav>
+    <%= render 'searches/search' %>
 
-</body>
+    <%= yield %>
+
+  </body>
 </html>

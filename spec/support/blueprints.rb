@@ -57,8 +57,18 @@ end
 Comment.blueprint(:vanilla) do 
 end
 
+Comment.blueprint(:inappropriate) do 
+  body { Faker::Internet.url }
+end
 
 ##TOPICS
 Topic.blueprint(:Jam) do 
   name { "Jam" }
+end
+
+##MODERATOR
+
+Moderator.blueprint(:vanilla) do 
+  email { Faker::Internet.email }
+  password { "password" }
 end

@@ -1,6 +1,7 @@
 <%= render @reading_list %>
 <% if @reading_list.reader_id == session[:reader_id] %>
-  <div id="edit_list_details">
+  <a id="edit-list">edit list details</a>
+  <div id="edit_list_details" class="hidden">
     <%= render 'edit' %>
   </div>
 <% end %>
@@ -13,7 +14,6 @@
   <% end %>
 <% end %>
 
-<%= render :partial => 'comments/comment_form', :locals => { :comment => @comment } %>
 
 <% if session[:logged_in] %>
   <%= render 'follow_button' %>
@@ -21,3 +21,4 @@
 <div id="comments">
   <%= render @comments %>
 </div>
+<%= render :partial => 'comments/comment_form', :locals => { :comment => @comment } %>

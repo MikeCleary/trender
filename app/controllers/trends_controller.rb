@@ -23,6 +23,12 @@ class TrendsController < ApplicationController
       :title => @trend.subject
     )
     @stories = Story.get_stories(params)
+    if @stories.blank? 
+      flash[:notice] = "No Articles Found"
+      render
+    else
+      @stories
+    end
   end
 
   def trends_by_region

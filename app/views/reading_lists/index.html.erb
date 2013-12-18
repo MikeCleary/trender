@@ -1,6 +1,7 @@
 <div id="topics">
+  <h5>Topics</h5>
   <% unless @topics.blank? %>
-    <%= @topics.each do |topic| %>
+    <% @topics.each do |topic| %>
       <%= link_to topic.name, reading_lists_topic_path(topic) %>
       <p>(<%= topic.reading_lists.count %>)</p>
     <% end %>

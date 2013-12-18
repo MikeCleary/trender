@@ -2,7 +2,8 @@ class SearchesController < ApplicationController
 
   def search
     @page_number = ReadingList.paginate(params)
-    if @reading_lists = ReadingList.search(params[:search])
+    @reading_lists = ReadingList.search(params[:search])
+    unless @reading_lists.blank?
       render :results
     else
       render :none_found
