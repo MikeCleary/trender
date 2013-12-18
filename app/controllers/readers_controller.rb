@@ -36,8 +36,8 @@ class ReadersController < ApplicationController
       @reader.save
       @reader.name = auth.info[:name],
       @reader.access_token = auth.credentials[:token],
-      @reader.save
       @reader.access_token_secret = auth.credentials[:secret]
+      @reader.save
     end
     session[:logged_in] = true
     session[:reader_id] = @reader.id
