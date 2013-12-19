@@ -5,11 +5,11 @@ $(document).ready(function(){
 });
 
 function trendClick(){
-  $('#main').html("<img src='assets/loader.gif' class='loader'>");
+  $('#main').html("<img src='<%= asset_path('loader.gif') %>' class='loader'>");
   var trend_id = $(this).data('id');
   var trend_subject = $(this).data('subject');
   $.ajax({
-    url: '/trends/' + trend_id 
+    url: prefix + '/trends/' + trend_id 
   });
 };
 
