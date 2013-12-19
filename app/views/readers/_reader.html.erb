@@ -2,10 +2,10 @@
   <h3><%= reader.name %></h3>
   <p>
     Reading lists: <%= reader.reading_lists.count %>
-    <%= link_to "View reader's lists" , reader_path(reader), :class => "btn btn-primary"%>
+    <%= link_to "View reader's lists" , reader_path(reader)%>
   </p>
   <p>
     Comments: <%= reader.comments.count %>
-    <%= link_to "View reader's comments" , reader_comments_path(reader), :class => "btn btn-primary"%>
+    <%= link_to "View reader's comments" , reader_comments_path(reader)%>
   </p>
 </div>

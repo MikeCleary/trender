@@ -4,7 +4,12 @@ Given(/^a moderator is logged in$/) do
 end
 
 Given(/^a moderator is viewing a list with comments$/) do
-  @reading_list = ReadingList.make!(:vanilla)
+  @trend = Trend.make!(:australian)
+  @reader = Reader.make!(:vanilla)
+  @reading_list = ReadingList.make(:vanilla)
+  @reading_list.reader_id = @reader.id
+  @reading_list.trend_id = @trend.id
+  @reading_list.save
   @reader = Reader.make!(:bruce)
   @comment = Comment.make(:inappropriate)
   @comment.reader_id = @reader.id

@@ -9,10 +9,10 @@
   <% end %>
 </div>
 <div id="stories">
-  <% @reading_list.stories.each do |story| %>
-    <%= render story %>
-    <% if @reading_list.reader.id == session[:reader_id] || moderator_signed_in?%>
-      <%= link_to "remove story", story_path(story), :method => :delete %>
+    <% @reading_list.stories.each do |story| %>
+      <%= render story %>
+      <% if @reading_list.reader.id == session[:reader_id] || moderator_signed_in?%>
+        <%= link_to "remove story", story_path(story), :method => :delete %>
+      <% end %>
     <% end %>
-  <% end %>
 </div>

@@ -36,10 +36,9 @@ production:
   host: 127.0.0.1
   adapter: postgresql
   encoding: unicode
-  database: trender_production
+  database: trendr_production
   pool: 5
-  username: postgres
-  password: postgres
+  username: trendr
 
 cucumber:
   <<: *test

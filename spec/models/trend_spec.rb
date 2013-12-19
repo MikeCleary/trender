@@ -25,8 +25,19 @@ describe Trend do
       expect(Trend.all.count).to eq(10) 
       expect(@trend.subject).to eq('#BethanyMotaGiveaway')
     end
-
   end
 
+  context "querify" do 
+    before do 
+      @trend_one = Trend.create( :subject => "#WeLoveTheNSA" )
+      @trend_two = Trend.create( :subject => "#The Ashes" )
+      @trend_one.querify
+      @trend_two.querify
+    end
 
+    it "should make the subjects query friendly" do 
+      expect(@trend_one.subject).to eq("We_Love_The_NSA")
+      expect(@trend_two.subject).to eq("The_Ashes")
+    end
+  end
 end

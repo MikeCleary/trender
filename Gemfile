@@ -11,14 +11,15 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem "twitter-bootstrap-rails"
 gem 'httparty'
-gem 'rails_serve_static_assets'
-gem 'rails_12factor', group: :production
 gem 'thinking-sphinx'
 gem 'mysql2'
 gem 'devise'
-
+gem 'rails_serve_static_assets'
+gem "rails-erd"
+gem 'rails_12factor', group: :production
 
 group :development, :test do 
+  gem 'simplecov'
   gem 'rack_session_access'
   gem 'shoulda-matchers'
   gem 'mocha'
@@ -33,7 +34,6 @@ group :development, :test do
   gem 'machinist'
   gem 'launchy'
   gem 'faker'
-  # gem 'capybara/poltergeist'
 end
 
 group :doc do

@@ -15,4 +15,8 @@ class ReadingList < ActiveRecord::Base
   has_many :reading_list_topics
   has_many :topics, :through => :reading_list_topics
   
+  before_create do 
+    self.title = self.trend.subject
+  end
+
 end

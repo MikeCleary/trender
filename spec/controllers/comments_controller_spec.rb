@@ -3,7 +3,10 @@ require 'spec_helper'
 describe CommentsController do
   before do 
     @reader = Reader.make!(:bruce)
-    @reading_list = ReadingList.make!(:vanilla)
+    @trend = Trend.make!(:australian)
+    @reading_list = ReadingList.create(
+      :trend_id => @trend.id
+      )
   end
   context "create" do 
     

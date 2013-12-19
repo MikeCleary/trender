@@ -10,3 +10,42 @@ body {
 a {
   cursor: pointer;
 }
+
+//LAYOUT===============================
+
+#header {
+  background-color: #0044cc;
+  height: 125px;
+  font-size: 1.2em;
+  margin-bottom: 24px;
+}
+
+#title {
+  color: white;
+  font-weight: bold;
+  font-size: 6em;
+  padding-left: 30px;
+  padding-top: 30px;
+  font-family: Arial;
+  text-shadow: 3px 3px 3px #093794;
+}
+
+//SIGN_IN
+
+#sign_in {
+  padding: 15px;
+  text-align: right;
+  margin-bottom: 32px;
+  color: #C1DAFF;
+}
+
+//NAV======================
+
+#application_nav{
+  text-align: right;
+}
+
+#application_nav a {
+  color: white;
+  margin-right: 32px;
+}

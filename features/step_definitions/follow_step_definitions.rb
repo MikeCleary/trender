@@ -1,6 +1,10 @@
 Given(/^there is a reading list in the database$/) do
-  @reading_list = ReadingList.make!(:followed)
-  @reading_list.reader_id = 5
+  @reader = Reader.make!(:vanilla)
+  @trend = Trend.make!(:vanilla)
+  @reading_list = ReadingList.make(:followed)
+  @reading_list.reader_id = @reader.id
+  @reading_list.trend_id = @trend.id
+  @reading_list.save!
 end
 
 Given(/^they view a list$/) do

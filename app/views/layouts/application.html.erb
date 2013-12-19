@@ -7,26 +7,36 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body class="container">
+  <body >
+    <div id="header" class="row">
+      <h1 id="title" class="span8" >Trendr</h1>
+      <div id="sign_in">
+        <% if session[:logged_in] %>
+          <p id="logged_in">Logged in as: <%= session[:reader] %></p>
+        <% else %>
+          <%= link_to "Sign in with twitter", '/auth/twitter', :class => "btn btn-info"%>
+        <% end %>
+      </div>
+      <nav id="application_nav">
+        <%= link_to "View all lists", reading_lists_path%>
+        <%= link_to "View all readers", readers_path%>
+        <% if session[:logged_in] %>
+          <%= link_to "My library", reading_lists_reader_path(session[:reader_id]) %>
+          <%= link_to "Sign out", sign_out_path %>
+        <% end %>
+        <% if moderator_signed_in? %>
+          <%= link_to "Moderator sign out", '/moderators/sign_out', :method => :delete %>
+        <% end %>
+      </nav>
+      </div>
+    </div>
+    <div class="container">
     <% if flash[:notice] %>
         <%= bootstrap_flash %>
     <% end %>
-    <nav id="application_nav" class="row">
-      <%= link_to "Sign in with twitter", '/auth/twitter', :class => "btn btn-primary"%>
-      <%= link_to "View all lists", reading_lists_path, :class => "btn btn-primary"%>
-      <%= link_to "View all readers", readers_path , :class => "btn btn-primary"%>
-      <% if session[:logged_in] %>
-        <p>Logged in as: <%= session[:reader] %></p>
-        <%= link_to "My library", reading_lists_reader_path(session[:reader_id]) %>
-        <%= link_to "Sign out", sign_out_path %>
-      <% end %>
-      <% if moderator_signed_in? %>
-        <%= link_to "Moderator sign out", '/moderators/sign_out', :method => :delete %>
-      <% end %>
-    </nav>
-    <%= render 'searches/search' %>
 
     <%= yield %>
 
+    </div>
   </body>
 </html>

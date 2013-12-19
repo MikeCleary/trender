@@ -1,8 +1,4 @@
-.alert-success{
-  position: fixed;
-  width: 200px;
-  margin-left: 400px;
-  margin-right: auto;
-  margin-top: 200px;
+.alert {
+  position: absolute;
   z-index: 1;
 }

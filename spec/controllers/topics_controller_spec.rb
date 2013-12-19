@@ -3,7 +3,10 @@ require 'spec_helper'
 describe TopicsController do
   context "adding a topic" do 
     before do 
-      @reading_list = ReadingList.make!(:vanilla)
+      @trend = Trend.make!(:australian)
+      @reading_list = ReadingList.create(
+        :trend_id => @trend.id
+        )
       
       @params = { 
         :topic => { :name => "Jam" },

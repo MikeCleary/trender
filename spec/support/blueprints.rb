@@ -28,6 +28,10 @@ Trend.blueprint(:not_australian) do
   subject { "#NotAustralia" }
 end
 
+Trend.blueprint(:to_find) do 
+  subject { "Title to be found" }
+end
+
 
 ##STORIES
 Story.blueprint(:vanilla) do 
@@ -42,10 +46,6 @@ end
 
 ReadingList.blueprint(:to_not_find) do 
   title { Faker::Lorem.words.join(' ') }
-end
-
-ReadingList.blueprint(:to_find) do 
-  title { "Title to be found" }
 end
 
 ReadingList.blueprint(:followed) do 

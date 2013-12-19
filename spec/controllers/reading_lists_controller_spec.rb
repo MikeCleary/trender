@@ -5,7 +5,9 @@ describe ReadingListsController do
   before do     
     @reader = Reader.make!(:vanilla)
     @trend = Trend.make!(:vanilla)
-    @story = Story.make!(:vanilla)
+    @story = Story.make(:vanilla)
+    @story.trend_id = @trend.id
+    @story.save
   end
 
   describe "add_story" do
@@ -28,7 +30,9 @@ describe ReadingListsController do
 
   describe "saving a reading list" do
     before do 
-      @reading_list = ReadingList.make!(:vanilla)
+      @reading_list = ReadingList.create(
+        :trend_id => @trend.id
+        )
     end
     
     context "invalid data" do 

@@ -43,10 +43,4 @@ class ReadersController < ApplicationController
     session[:reader] = @reader.name
     redirect_to :root
   end
-
-  # private 
-  # def reader_attributes
-  #   params.require(:auth)
-  # end
-
 end

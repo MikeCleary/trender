@@ -5,6 +5,7 @@ $(document).ready(function(){
 });
 
 function trendClick(){
+  $('#main').html("<img src='assets/loader.gif' class='loader'>");
   var trend_id = $(this).data('id');
   var trend_subject = $(this).data('subject');
   $.ajax({

@@ -1,6 +1,18 @@
 Given(/^There are distinct readinglists in the database$/) do
-  20.times {ReadingList.make!(:to_not_find)}
-  ReadingList.make!(:to_find)
+  @trend = Trend.make!(:australian)
+  @reader = Reader.make!(:bruce)
+  20.times {
+    @reading_list = ReadingList.make(:to_not_find)
+    @reading_list.trend_id = @trend.id
+    @reading_list.reader_id = @reader.id
+    @reading_list.save
+  }
+  @trend = Trend.make!(:to_find)
+  @reader = Reader.make!(:bruce)
+  @reading_list = ReadingList.make(:vanilla)
+  @reading_list.trend_id = @trend.id
+  @reading_list.reader_id = @reader.id
+  @reading_list.save
 end
 
 Given(/^We have built the sphinx index for them$/) do
@@ -8,7 +20,7 @@ Given(/^We have built the sphinx index for them$/) do
 end
 
 Given(/^the visitor is on a page$/) do
-  visit root_path
+  visit reading_lists_path
 end
 
 When(/^they put "(.*?)" into the search field$/) do |search_term|
