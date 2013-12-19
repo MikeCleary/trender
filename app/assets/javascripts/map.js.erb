@@ -23,10 +23,10 @@ $(document).ready(function(){
       backgroundColor: '#FFFFFF',
 
       onRegionClick: function(event, code){
-        $('#side').html("<img src='<%= assets_path('loader.gif') %>' class='loader'>");
+        $('#side').html("<img src='<%= asset_path('loader.gif') %>' class='loader'>");
         console.log("jam");
         $.ajax({
-          url: prefix + 'trends/trends_by_region',
+          url: prefix() + 'trends/trends_by_region',
           data: {country_code : code}
         });
       }

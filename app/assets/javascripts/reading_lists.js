@@ -18,14 +18,14 @@ function toggleFollow(){
 
 function startFollow(list){
   $.ajax({
-    url: prefix + 'reading_lists/' + list + '/add_follow' ,
+    url: prefix() + 'reading_lists/' + list + '/add_follow' ,
     type: 'POST'
   });
 };
 
 function stopFollow(list){
   $.ajax({
-    url: prefix +  'reading_lists/' + list + '/remove_follow',
+    url: prefix() +  'reading_lists/' + list + '/remove_follow',
     type: 'DELETE'
   });
 };
