@@ -2,7 +2,7 @@ Feature: Topics
   Background: 
     Given A signed in visitor has choosen a trend from a list
     When a visitor clicks "Save and view"
-  @wip @javascript
+  @javascript
   Scenario: A member adds a topic to a list
     When they click "edit list details" link
     And they give a list a topic

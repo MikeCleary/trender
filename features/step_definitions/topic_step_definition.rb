@@ -11,5 +11,5 @@ Then(/^the topic appears$/) do
 end
 
 Then(/^they see the story with that topic$/) do
-  find('.reading_list', :text => "Jam")
+  page.has_content?('.reading_list', :text => "Jam")
 end
