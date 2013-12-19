@@ -6,4 +6,4 @@ Uses twitter gem and omniauth to log in a user who can then select from a jvecto
 
 pivotal project page -https://www.pivotaltracker.com/s/projects/971466
 
-heroku hosted - http://damp-bastion-8085.herokuapp.com/
+Hosted by Our Glorious Leader - http://wegotcoders.com/trendr
