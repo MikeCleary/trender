@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application using twitter and feedzilla APIs to show news articles on trending topics from around the world.
 
-Things you may want to cover:
+Uses twitter gem and omniauth to log in a user who can then select from a jvector map countries they want trending information for. can store collections of articles for comment and discussion by other users.
 
-* Ruby version
+pivotal project page -https://www.pivotaltracker.com/s/projects/971466
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+heroku hosted - http://damp-bastion-8085.herokuapp.com/
