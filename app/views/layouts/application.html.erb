@@ -30,13 +30,16 @@
       </nav>
       </div>
     </div>
-    <div class="container">
+    <div class="container main">
     <% if flash[:notice] %>
         <%= bootstrap_flash %>
     <% end %>
 
     <%= yield %>
 
+    </div>
+    <div id="moderator_login">
+       <%= link_to "moderator login", new_moderator_session_path %>
     </div>
   </body>
 </html>
