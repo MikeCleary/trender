@@ -78,6 +78,8 @@ Trender::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.consumer_key = ENV['twitter_id']
-  config.consumer_secret = ENV['twitter_secret']
+  twitter_secrets = YAML::load_file('config/omniauth.yml')[Rails.env]
+
+  config.consumer_key = twitter_secrets['twitter_id']
+  config.consumer_secret = twitter_secrets['twitter_secret']
 end

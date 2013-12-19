@@ -14,7 +14,7 @@
         <% if session[:logged_in] %>
           <p id="logged_in">Logged in as: <%= session[:reader] %></p>
         <% else %>
-          <%= link_to "Sign in with twitter", '/auth/twitter', :class => "btn btn-info"%>
+          <%= link_to "Sign in with twitter", omni_auth_url, :class => "btn btn-info"%>
         <% end %>
       </div>
       <nav id="application_nav">
