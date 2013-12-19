@@ -19,6 +19,7 @@
         <% end %>
       </div>
       <nav id="application_nav">
+        <%= link_to "Home", root_path %>
         <%= link_to "View all lists", reading_lists_path%>
         <%= link_to "View all readers", readers_path%>
         <% if session[:logged_in] %>
