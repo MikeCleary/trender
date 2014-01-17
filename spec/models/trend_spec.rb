@@ -15,7 +15,6 @@ describe Trend do
       trends_json[:trends].each do |hash|
         hash.deep_symbolize_keys!
       end
-      # Twitter::TrendResults.stubs(:from_response).returns(twitter_response)
       twitter_response = Twitter::TrendResults.new(trends_json)
       Trend.parse_trends(twitter_response, @place)
       @trend = Trend.first

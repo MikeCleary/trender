@@ -29,7 +29,7 @@ class ReadersController < ApplicationController
       @reader = Reader.find_by(:name => auth.info[:name])
       @reader.update_attributes(
       :access_token => auth.credentials[:token],
-      :access_token_secret => auth.credentials[:secret]  
+      :access_token_secret => auth.credentials[:secret]
       )
     else
       @reader = Reader.create(
